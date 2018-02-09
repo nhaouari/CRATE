@@ -40,6 +40,7 @@ $.ajax({
 });
 
 function initialize(connectionOptions){
+    //console.log(JSON.stringify(connectionOptions));
     cad.connectionOptions = connectionOptions;
     // #A check the url if the editor must create documents already
     if ((document.URL.split("?")).length>1){
