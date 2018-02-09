@@ -3,6 +3,7 @@
     "version": "0.1.2",
     "dependencies": {
         "jquery": "latest",
+        "quill": "https://github.com/quilljs/quill/releases/download/v1.3.5/quill.tar.gz",
         "bootstrap": "latest",
         "zeroclipboard": "latest",
         "font-awesome": "latest",
