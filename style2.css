@@ -1,0 +1,102 @@
+ /* Remove the navbar's default margin-bottom and rounded borders */ 
+    
+#head {
+margin-top: 20px;
+
+}
+#editor {
+    min-height: 300px;
+  }
+
+#content {
+  margin: 10px;
+}
+
+#title {
+font-size: xx-large;
+float: left;
+min-width: 400px;
+margin-left:20px; 
+padding-left: 5px;
+padding-right:5px;
+white-space: nowrap;
+overflow: hidden;
+  }    
+#title br {
+    display:none;
+}
+#title * {
+    display:inline;
+    white-space:nowrap;
+}
+
+#state {
+float: left;
+
+}
+
+
+#features {
+float: left;
+}
+
+.ficon {
+  margin-left:10px;
+  margin-right:10px;
+  margin-top: 0px;
+}
+
+.ficon2 {
+  margin-left:10px;
+  margin-right:10px;
+  margin-top:10px;
+  
+}
+#sharinglink {
+position: relative;
+left:30px;
+}
+
+.imageuser {
+  width: inherit;
+  height: inherit;
+}
+
+#users {
+  margin-left: 0px;
+}
+#users div {
+  width: 40px;
+  float: left;
+  margin:2px;
+}
+.navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }

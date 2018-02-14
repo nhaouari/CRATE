@@ -5,7 +5,7 @@ function Features(features, container){
     this.features = [];
     for (var i = 0; i < features.length; ++i){
         var row = jQuery('<div>').appendTo(this.container)
-            .addClass('col-xs-offset-2 col-xs-8 post col-sm-offset-3 col-sm-6')
+            .addClass('col-sm-offset-1 col-sm-10 post col-sm-offset-1')
             .addClass('text-center');
         var left = jQuery('<div>').appendTo(row).css('height','inherit');
         var right = jQuery('<div>').appendTo(row).css('height','inherit');
