@@ -1,22 +1,57 @@
-// #1 initialize
-// #A initialize model
-var m = new Model();
-// #B initialize view
-var vv = new VersionView(m.version, $("#version"), $("#homeIcon"));
-var vd = new Documents($("#documents"),$("#menu-center-header"));
-var vf = new Features(m.features, $("#features"));
-var vad = new RoundButton($("#menu-right-header"),
-                          "<i class='fa fa-plus'></i>",
-                          "add a document");
-var vmad = new ModalAddDocument($("body"));
-var vgb = new RoundButton($("#menu-right-header"),
-                          "<i class='fa fa-github'></li>",
-                          "contribute on Github");
-//var vl = new Layers(vf.features[vf.features.length-1]);
-// #C initialize controllers
-var cad = new AddDocument(vad, vmad, vd);
-var cg = new Github(vgb);
+// intialise the interface 
 
+
+  $('#title').click(function(){
+    $('#title').attr('contenteditable','true');
+})
+
+
+$('#title').keypress(function(e){
+    if(e.which == 13){
+        quill.focus();    
+    }
+});
+
+  var toolbarOptions = [
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      ['blockquote', 'code-block'],
+      ['formula','image','video'],
+
+      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+      [{ 'direction': 'rtl' }],                         // text direction
+
+      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+
+      ['clean']                                         // remove formatting button
+    ];
+
+    Quill.register('modules/cursors', QuillCursors);
+    var quill = new Quill("#editor", {
+     modules: {
+        formula: true,
+        toolbar: toolbarOptions,
+        cursors: {
+      autoRegisterListener: true, // default: true
+      hideDelay: 500, // default: 3000
+      hideSpeed: 0 // default: 400
+    },
+        history: {
+             delay: 2000,
+             maxStack: 500
+         }
+        },
+     theme: 'snow'
+        });
+
+var connectionOptions = "";
 // #2 get stun servers
 $.ajax({
     type: "POST",
@@ -39,18 +74,62 @@ $.ajax({
     async: true
 });
 
-function initialize(connectionOptions){
-    //console.log(JSON.stringify(connectionOptions));
-    cad.connectionOptions = connectionOptions;
+
+ 
+
+function initialize(connOptions){
+   
+    connectionOptions = connOptions;
     // #A check the url if the editor must create documents already
     if ((document.URL.split("?")).length>1){
         var editingSessions = (window.location.href.split('?')[1]).split('&');
-        for (var i = 0; i<editingSessions.length; ++i){
-            cad.justDoIt({server:  'https://ancient-shelf-9067.herokuapp.com',
-                          session: editingSessions[i],
+            justDoIt({server:  'https://ancient-shelf-9067.herokuapp.com',
+                          session: editingSessions[0],
                           connect: true});
-        };
-    };
-};
+        } else 
+        {
+            justDoIt(null);
 
-$(function(){ $('[data-toggle="popover"]').popover() });
+        }
+    };
+
+
+
+/// New Organization 
+
+// 1 configuration: signaling server , delta for shuffling spray ...
+
+
+// Inital the view : inital the interface 
+
+
+
+// Joining or new document
+
+
+// JustDOIT (...) 
+
+
+
+function justDoIt (signalingOptions, name, importFromJSON){
+    // #0 analyse the arguments
+    // (TODO) fix the uglyness of this code
+    var options = {webRTCOptions: connectionOptions };
+    options.webRTCOptions.trickle = true;
+    
+    if (signalingOptions) { options.signalingOptions = signalingOptions; };
+    
+    if (name) { options.name = name; };
+    
+    if (importFromJSON) {
+        options.importFromJSON = importFromJSON;
+        if (!options.signalingOptions){ options.signalingOptions = {}; };
+        options.signalingOptions.connect = true; // (TODO) may change this val
+    };
+
+    // #1 add a cell into the list of editors
+
+    var editorContainer = $("#editor");
+    cratify = editorContainer.cratify(options)[0];
+
+};

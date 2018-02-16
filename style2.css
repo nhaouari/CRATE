@@ -4,7 +4,7 @@
 margin-top: 20px;
 
 }
-#editor {
+.editor {
     min-height: 300px;
   }
 
@@ -30,13 +30,21 @@ overflow: hidden;
     white-space:nowrap;
 }
 
+
+ #connectionState {
+position: relative;
+left: 45px;
+top: 6px;
+
+}
 #state {
 float: left;
+
 
 }
 
 
-#features {
+#features div {
 float: left;
 }
 

@@ -57,12 +57,14 @@
       
       <div id="head">
           <div id="firstrow" class="row">
+              <div id="connectionState" style="margin-left: -50px; margin-right: -50px;float: left; width: 28px;">
+              </div>
               <div id="title">
               Untitled document
               </div>
               <div id="features"> 
                 <div id="shareicon">
-                  <i class="fa fa-unlink fa-2x ficon2"></i>
+                  <i class="fa fa-link fa-2x ficon2"></i>
                 </div>
 
                 <div id="saveicon"><i class="fa fa-floppy-o fa-2x ficon2"></i></div>
@@ -70,7 +72,6 @@
           </div>
 
       <div id="sharinglink" class="row">
-        link sharable
       </div>
 
       </div>
@@ -80,15 +81,10 @@
               <div id="state" style="margin-left: -50px;"">
                 <i class="fa fa-globe fa-3x ficon"></i>
               </div>
-              <div style="background-color: rgb(31, 161, 93);"><img class="imageuser" src="./icons/Alligator.png" alt="Anonymous Alligator"></div>
-              
-              <div style="background-color: rgb(61, 161, 93);"><img class="imageuser" src="./icons/Anteater.png" alt="Anonymous Alligator"></div>
-              
-              <div style="background-color: rgb(31, 100, 93);"><img class="imageuser" src="./icons/Armadillo.png" alt="Anonymous Alligator"></div>
-              
+             
 
               </div>
-                          <div id="editor">
+                          <div id="editor" class="editor">
                 
 
             </div>
@@ -120,66 +116,8 @@
   <script src="../jquery-crate3/build/jquery-crate.bundle.js">
     </script>   
 
-<script type="text/javascript">
- 
+    <script src="./js/main.js"></script>
 
 
-  $('#title').click(function(){
-    $('#title').attr('contenteditable','true');
-})
-
-  $('#title').focusout(function(){
-    $('#title').attr('contenteditable','false');
-    console.log("focusout ...");
-
-  if ($('#title').text()=="") {
-    $('#title').text('Untitled document');
-
-  }   
-})
-
-
-
-  var toolbarOptions = [
-      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      ['blockquote', 'code-block'],
-      ['formula','image','video'],
-
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-      [{ 'direction': 'rtl' }],                         // text direction
-
-      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
-      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-      [{ 'font': [] }],
-      [{ 'align': [] }],
-
-      ['clean']                                         // remove formatting button
-    ];
-
-    Quill.register('modules/cursors', QuillCursors);
-    var quill = new Quill("#editor", {
-     modules: {
-        formula: true,
-        toolbar: toolbarOptions,
-        cursors: true,
-        history: {
-             delay: 2000,
-             maxStack: 500
-         }
-        },
-     theme: 'snow'
-        });
-
-
-  
-    //this.editor.setText(""); // ToDO check it again reproduce bu comment
-
-
-</script>
 </body>
 </html>
