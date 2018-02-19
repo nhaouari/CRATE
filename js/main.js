@@ -29,6 +29,7 @@ $('#title').keypress(function(e){
       [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
       [{ 'font': [] }],
       [{ 'align': [] }],
+      ['contain'],
       ['comments-toggle'], // comment color on/off
       ['comments-add'], // comment add
       ['undo'],
@@ -123,6 +124,7 @@ function addCommentToList(comment, currentTimestamp) {
   
     </div>`
   );
+  console.log('addCommentToList Event')
   $('#comments').append(cmtbox)
 }
 
