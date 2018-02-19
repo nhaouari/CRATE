@@ -29,7 +29,8 @@ $('#title').keypress(function(e){
       [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
       [{ 'font': [] }],
       [{ 'align': [] }],
-
+      ['undo'],
+      ['redo'],
       ['clean']                                         // remove formatting button
     ];
 
@@ -37,19 +38,36 @@ $('#title').keypress(function(e){
     var quill = new Quill("#editor", {
      modules: {
         formula: true,
-        toolbar: toolbarOptions,
+        toolbar: {
+                container: toolbarOptions,
+                handlers: {
+                undo: function(value) {
+                  this.quill.history.undo();
+                  
+                },
+                redo: function(value) {
+                  this.quill.history.redo();
+                }
+              }
+        },
         cursors: {
       autoRegisterListener: true, // default: true
       hideDelay: 500, // default: 3000
       hideSpeed: 0 // default: 400
     },
         history: {
-             delay: 2000,
-             maxStack: 500
+             delay: 500,
+             maxStack: 1000
          }
         },
+
      theme: 'snow'
         });
+
+
+
+//$('.ql-undo').addClass('./node_modules/quill/assets/icons/undo.svg');
+//$('.ql-redo').addClass('./node_modules/quill/assets/icons/redo.svg');
 
 var connectionOptions = "";
 // #2 get stun servers
@@ -75,7 +93,7 @@ $.ajax({
 });
 
 
- 
+
 
 function initialize(connOptions){
    
@@ -91,6 +109,12 @@ function initialize(connOptions){
             justDoIt(null);
 
         }
+
+       //TODO: Organise this function (this is to make copy function work)
+       jQuery("#copyButton").click(function(){
+           jQuery("#sessionUrl").select();
+            document.execCommand("Copy");
+      });
     };
 
 

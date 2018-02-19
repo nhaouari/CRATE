@@ -78,6 +78,29 @@ left:30px;
   float: left;
   margin:2px;
 }
+
+
+.ql-undo {
+  background: no-repeat scroll 50% 50% transparent !important;
+  background-image: url("./node_modules/quill/assets/icons/undo.svg") !important;
+  text-align: center;
+}
+.ql-undo:hover {
+ color: #06c; !important
+}
+
+
+.ql-redo {
+  background: no-repeat scroll 50% 50% transparent !important;
+  background-image: url("./node_modules/quill/assets/icons/redo.svg") !important;
+  text-align: center;
+}
+.ql-redo:hover {
+ color: #06c; !important
+}
+
+
+
 .navbar {
       margin-bottom: 0;
       border-radius: 0;
