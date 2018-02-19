@@ -6,7 +6,14 @@ margin-top: 20px;
 }
 .editor {
     min-height: 300px;
+    float: left;
+    width: 70%;
   }
+
+ #comments {
+    float: left;
+    width: 30%;
+            }  
 
 #content {
   margin: 10px;
@@ -98,6 +105,38 @@ left:30px;
 .ql-redo:hover {
  color: #06c; !important
 }
+
+
+.comments {
+    padding: 10px;
+}
+
+.comment-box {
+    border: 1px #F0F0F0 solid;
+    padding: 10px 15px;
+}
+
+.comment-initials {
+    float: left;
+    padding: 10px;
+    background: #444444;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.comment-author {
+    color: #444444;
+    font-size: 18px;
+}
+
+.comment-date {
+    color: #BBBBBB;
+}
+
+.comment-body {
+    padding: 10px 0;
+}
+
 
 
 
