@@ -102,21 +102,22 @@ function commentsClick() {
   }
 }
 
-function addCommentToList(comment, currentTimestamp) {
+function addCommentToList(comment,id,name,color, currentTimestamp) {
   let utcSeconds = currentTimestamp;
   let d = new Date(0); // The 0 there is the key, which sets the date to the epoch
   d.setUTCSeconds(utcSeconds);
-  
+  console.log("currentTimestamp= "+currentTimestamp);
+  console.log("d= "+d);
   let date = dateFormat(d, "dddd, mmmm dS, yyyy, h:MM:ss TT");
 
-  let id = 'ql-comment-123-'+utcSeconds;
-
+  
   let cmtbox = $(
     `<div class='comment-box ${id}' onfocus="commentBoxFocus('${id}')" onfocusout="commentBoxFocus('${id}', 'out')" tabindex="1">
       <div class='comment-head'>
-        <div class='comment-initials'>AR</div>
+        <div id="${id}"style="background-color:${color};width: 40px;" ><img class="imageuser" src="./icons/${name}.png" alt="${name}"></div>
+    
         <div class='comment-details'>
-          <div class='comment-author'>Arthur Renaldy</div>
+          <div class='comment-author'>${name}</div>
           <div class='comment-date'>${date}</div>
         </div>
       </div>
@@ -132,7 +133,15 @@ function addCommentToList(comment, currentTimestamp) {
 window.commentSave = () => {
   let comment = $('#commentInput').val();
   commentCallback(comment);
-  addCommentToList(comment, currentTimestamp)
+
+
+   let name = quill.options.modules.comment.commentAddOn ;
+
+  let id = quill.options.modules.comment.commentAuthorId ; 
+
+  let color= quill.options.modules.comment.color; 
+
+  addCommentToList(comment,id,name,color, currentTimestamp)
   
 }
 
