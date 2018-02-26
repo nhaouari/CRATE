@@ -102,7 +102,7 @@ function commentsClick() {
   }
 }
 
-function addCommentToList(comment,id,name,color, currentTimestamp) {
+function addCommentToList(comment,idAuthor,name,color, currentTimestamp) {
   let utcSeconds = currentTimestamp;
   let d = new Date(0); // The 0 there is the key, which sets the date to the epoch
   d.setUTCSeconds(utcSeconds);
@@ -110,7 +110,8 @@ function addCommentToList(comment,id,name,color, currentTimestamp) {
   console.log("d= "+d);
   let date = dateFormat(d, "dddd, mmmm dS, yyyy, h:MM:ss TT");
 
-  
+  let id = 'ql-comment-'+idAuthor+'-'+utcSeconds;
+
   let cmtbox = $(
     `<div class='comment-box ${id}' onfocus="commentBoxFocus('${id}')" onfocusout="commentBoxFocus('${id}', 'out')" tabindex="1">
       <div class='comment-head'>
@@ -135,7 +136,7 @@ window.commentSave = () => {
   commentCallback(comment);
 
 
-   let name = quill.options.modules.comment.commentAddOn ;
+  let name = quill.options.modules.comment.commentAddOn ;
 
   let id = quill.options.modules.comment.commentAuthorId ; 
 
@@ -143,17 +144,24 @@ window.commentSave = () => {
 
   addCommentToList(comment,id,name,color, currentTimestamp)
   
+
 }
 
 window.commentBoxFocus = function(id, type) {
-  $('.ql-comments span.ql-comment').css('background-color', 'yellow');
+  $('.ql-comments #'+id).css('background-color', 'yellow');
   $('#comments .comment-box').css('border-color', '#F0F0F0');
+  
+  console.log(id+" : Focus type :"+type);
   if (type!=='out') {
     $('.ql-comments #'+id).css('background-color', 'red');
     $('#comments .'+id).css('border-color', 'red');
   }
   
 }
+
+
+
+
 
 
 //$('.ql-undo').addClass('./node_modules/quill/assets/icons/undo.svg');
