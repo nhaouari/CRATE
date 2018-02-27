@@ -143,8 +143,7 @@ window.commentSave = () => {
   let color= quill.options.modules.comment.color; 
 
   addCommentToList(comment,id,name,color, currentTimestamp)
-  
-
+  //jQuery('.ql-clean').click() ;
 }
 
 window.commentBoxFocus = function(id, type) {
