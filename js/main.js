@@ -29,11 +29,8 @@ $('#title').keypress(function(e){
       [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
       [{ 'font': [] }],
       [{ 'align': [] }],
-      ['contain'],
       ['comments-toggle'], // comment color on/off
       ['comments-add'], // comment add
-      ['undo'],
-      ['redo'],
       ['clean']                                         // remove formatting button
     ];
 
@@ -160,7 +157,7 @@ window.commentBoxFocus = function(id, type) {
 
 
 
-
+store.set('user', { name:'Marcus' })
 
 
 //$('.ql-undo').addClass('./node_modules/quill/assets/icons/undo.svg');

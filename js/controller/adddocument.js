@@ -147,7 +147,7 @@ AddDocument.prototype.justDoIt = function(signalingOptions,
         .css('display', 'inline-block')
         .css('margin-right', '10px');
     editor.header.prepend(saveDiv);
-    var vsb = new RoundButton(saveDiv, '<i class="fa fa-floppy-o"></i>','save');
+    var vsb = new RoundButton(saveDiv, '<i class="fa fa-floppy-o"></i>','sav222e');
     var csb = new CSaveButton(vsb.button, editor);
 
 
