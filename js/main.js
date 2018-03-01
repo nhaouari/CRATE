@@ -14,10 +14,8 @@ $('#title').keypress(function(e){
 
   var toolbarOptions = [
       ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      ['blockquote', 'code-block'],
-      ['formula','image','video'],
-
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+            // custom button values
+      [{ 'align': [] }],      
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
       [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
       [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
@@ -28,7 +26,9 @@ $('#title').keypress(function(e){
 
       [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
       [{ 'font': [] }],
-      [{ 'align': [] }],
+      ['blockquote', 'code-block'],
+      ['formula','image','video','link'],
+      ['subdocument'],
       ['comments-toggle'], // comment color on/off
       ['comments-add'], // comment add
       ['clean']                                         // remove formatting button
@@ -42,6 +42,14 @@ $('#title').keypress(function(e){
         toolbar: {
                 container: toolbarOptions,
                 handlers: {
+                subdocument:function(value) {
+                 let range = this.quill.getSelection();
+                // let preview = this.quill.getText(range);
+                 let preview = window.location.href.split('?')[0]+'?'+GUID();
+                 let tooltip = this.quill.theme.tooltip;
+                 tooltip.edit('link', preview);
+                
+                },
                 undo: function(value) {
                   this.quill.history.undo();
                   
@@ -74,6 +82,10 @@ $('#title').keypress(function(e){
      theme: 'snow'
         });
 
+$(".ql-subdocument").html('<strong>SUB</strong>');
+
+
+
 
 let commentCallback;
 
@@ -105,7 +117,7 @@ function addCommentToList(comment,idAuthor,name,color, currentTimestamp) {
   d.setUTCSeconds(utcSeconds);
   console.log("currentTimestamp= "+currentTimestamp);
   console.log("d= "+d);
-  let date = dateFormat(d, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+   date = dateFormat(d, "dddd, mmmm dS, yyyy, h:MM:ss TT");
 
   let id = 'ql-comment-'+idAuthor+'-'+utcSeconds;
 
