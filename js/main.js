@@ -45,7 +45,7 @@ $('#title').keypress(function(e){
                 subdocument:function(value) {
                  let range = this.quill.getSelection();
                 // let preview = this.quill.getText(range);
-                 let preview = window.location.href.split('?')[0]+'?'+GUID();
+                 let preview = window.location.href.split('?')[0]+'?'+GUID2();
                  let tooltip = this.quill.theme.tooltip;
                  tooltip.edit('link', preview);
                 
