@@ -1,15 +1,3 @@
-//editor
-
-
-
-//comments
-
-
-
-
-//config.js
-
-
 
 function initialize(connOptions){
    
