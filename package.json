@@ -1,0 +1,36 @@
+{
+  "name": "crate2",
+  "version": "2.0.0",
+  "description": "Scalable Peer to Peer collaborative Editor",
+  "main": "index.html",
+  "dependencies": {
+    "quill-cursors": "^1.0.2",
+    "dateformat": "^3.0.3",
+    "quill-comment": "^1.2.2",
+    "store": "^2.0.12",
+    "quill": "*",
+    "bootstrap": "3.3.6",
+    "jquery": "2.*",
+    "font-awesome": "*",
+    "katex": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhaouari/CRATE.git"
+  },
+  "keywords": [
+    "collaboration",
+    "scalable",
+    "editor"
+  ],
+  "author": "Noureddine Haouari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nhaouari/CRATE/issues"
+  },
+  "homepage": "https://github.com/nhaouari/CRATE#readme"
+}
