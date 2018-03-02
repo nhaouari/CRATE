@@ -13,7 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="./style2.css"/>
+  <link rel="stylesheet" href="./css/style.css"/>
 
   <link rel="stylesheet"
           href="./bower_components/font-awesome/css/font-awesome.min.css" />
@@ -75,6 +75,7 @@
 </footer>
 
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.js" integrity="sha384-GR8SEkOO1rBN/jnOcQDFcFmwXAevSLx7/Io9Ps1rkxWp983ZIuUGfxivlF/5f5eJ" crossorigin="anonymous"></script>
     <script src="./bower_components/quill/quill.min.js"></script>   
     <script src="./node_modules/quill-cursors/dist/quill-cursors.min.js"></script> 
@@ -100,70 +101,7 @@
     </script>  
     <script src="./node_modules/store/dist/store.legacy.min.js"></script>
 
-    <script type="text/javascript">
-    
-listDocuments();
-
-// Remove document and referch the list of documents
-function removeDocument(key) {
-  console.log("the key is "+key);
-  store.remove(key);
-  listDocuments();
-}
-
-function listDocuments() {
-  // body...
-var documents= $('#documents');
- list = `<table class="table">
-   <tbody>
-`;
-/* <thead>
- <tr>
-    <th scope="row">#</th>
-    <th scope="row">title</th>
-    <th scope="row">date</th>
-    </tr>
-  </thead>*/
-var i= 1;
-store.each(function(value, key) {
-            
-if (key.includes("CRATE2"))
-{
-  session= key.split("-")[1];
-  date = dateFormat(value.date, "dddd, mmmm dS, yyyy, h:MM:ss TT");
-  title = value.title;
-  row=`
-  <tr>
-      <td scope="row"><i class="fa fa-file"></i></td>
-      <td scope="row"><a href="./document.html?${session}">${title}</a></td>
-      <td scope="row">${date}</td>
-      <td scope="row" onClick="removeDocument('${key}');"><i class="fa fa-trash-o" style="color:red">
-        </i></td>  
-    </tr>`;
-
- list=list+row;
- i++;
-}
-});
-
-
- list=list+`
-  </tbody>
-</table>`;
-
-if (i==1) {
-message= `<div class="alert alert-success">
-  You Have not created yet <strong>CRATEv2!</strong>  documents. click on <a href="./document.html"><i class="fa fa-plus-circle" style="
-  font-size: 30px; color:gray; position: relative;
-  top: 5px;
-"></i></a>  to creat your first document. 
-</div>`;
-list+=message; 
-}
-documents.html(list);
-
-}
-    </script>
+    <script src="./js/index.js"></script>
 
 </body>
 </html>
