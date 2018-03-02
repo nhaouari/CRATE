@@ -13,12 +13,6 @@ function initialize(connOptions){
             justDoIt(null);
 
         }
-
-       //TODO: Organise this function (this is to make copy function work)
-       jQuery("#copyButton").click(function(){
-           jQuery("#sessionUrl").select();
-            document.execCommand("Copy");
-      });
     };
 
 
