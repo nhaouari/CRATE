@@ -44,7 +44,7 @@ $('#title').keypress(function(e){
                 handlers: {
                 subdocument:function(value) {
                  let range = this.quill.getSelection();
-                // let preview = this.quill.getText(range);
+                 // let preview = this.quill.getText(range);
                  let preview = window.location.href.split('?')[0]+'?'+GUID2();
                  let tooltip = this.quill.theme.tooltip;
                  tooltip.edit('link', preview);
@@ -247,8 +247,18 @@ function justDoIt (signalingOptions, name, importFromJSON){
     var options = {webRTCOptions: connectionOptions };
     options.webRTCOptions.trickle = true;
     
-    if (signalingOptions) { options.signalingOptions = signalingOptions; };
+    if (signalingOptions) { 
+      options.signalingOptions = signalingOptions; 
+      
+      //Check local storage
+      if (store.get("CRATE2-"+signalingOptions.session)) {
+          // Import causality and vector 
+           options.importFromJSON = store.get("CRATE2-"+signalingOptions.session);
+      }
+
+    };
     
+
     if (name) { options.name = name; };
     
     if (importFromJSON) {
