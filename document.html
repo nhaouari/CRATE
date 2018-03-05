@@ -27,6 +27,8 @@
 
 <!--NAVBAR-->
 <nav class="navbar navbar-inverse">
+ 
+
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -34,14 +36,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
+
       <a class="navbar-brand" href="./index.html">CRATEv2</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
+        <li class="active"><a href="./index.html">Home</a></li>
+        <li><a href="#about" id="about">About</a></li>
+        <li><a href="#project" id="project">Project</a></li>
+        <li><a href="#publications" id="publications">Publications</a></li>
+        <li><a href="#contact" id="contact">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><i class="fa fa-user" style="
@@ -55,13 +59,15 @@
   
 
 <!--Content-->  
-<div class="container-fluid text-center">    
+<div class="container-fluid text-center"> 
+ <span id="forkongithub"><a href="https://github.com/nhaouari/CRATE">Fork me on GitHub</a></span>
+
   <div class="row content">
-    <div class="col-sm-offset-1 col-sm-10  col-sm-offset-1 text-left"> 
+    <div class="col-md-10 col-md-offset-1 text-center" id="content"> 
       
       <div id="head">
           <div id="firstrow" class="row">
-              <div id="connectionState" style="margin-left: -50px; margin-right: -50px;float: left; width: 28px;">
+              <div id="connectionState">
               </div>
               <div id="title">
               Untitled document
@@ -122,8 +128,9 @@
 <!--FOOTER-->
 
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+  <div id="footer"></div>
 </footer>
+
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -133,9 +140,10 @@
     <script src="./node_modules/quill-comment/quill-comment.js"> </script>  
     <script src="./node_modules/dateformat/lib/dateformat.js"></script>  
     <script src="./node_modules/store/dist/store.legacy.min.js"></script>
+    <script src="./node_modules/showdown/dist/showdown.min.js"></script>
 
  <!-- <script src="./bower_components/jquery-crate/build/jquery-crate.bundle.js"></script>   --> 
-
+    <script src="./js/common.js"></script>
     <script src="./js/jquery-crate.bundle.js"></script> 
     <script src="./js/comments.js"></script>
     <script src="./js/editor.js"></script>

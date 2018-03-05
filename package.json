@@ -4,15 +4,16 @@
   "description": "Scalable Peer to Peer collaborative Editor",
   "main": "index.html",
   "dependencies": {
-    "quill-cursors": "^1.0.2",
-    "dateformat": "^3.0.3",
-    "quill-comment": "^1.2.2",
-    "store": "^2.0.12",
-    "quill": "*",
     "bootstrap": "3.3.6",
-    "jquery": "2.*",
+    "dateformat": "^3.0.3",
     "font-awesome": "*",
-    "katex": "*"
+    "jquery": "2.*",
+    "katex": "*",
+    "quill": "*",
+    "quill-comment": "^1.2.2",
+    "quill-cursors": "^1.0.2",
+    "showdown": "^1.8.6",
+    "store": "^2.0.12"
   },
   "devDependencies": {},
   "scripts": {
