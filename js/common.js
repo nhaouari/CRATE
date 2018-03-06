@@ -1,4 +1,37 @@
 
+// Profile
+  jQuery('#generate-profile').click( function () {
+   id= GUID2();
+   m=new Marker(id);
+   jQuery('#photo-profile').html(m.getAvatar());
+   jQuery('#id-profile').val(id);
+   jQuery('#pseudonym-profile').val(m.animal);
+  
+	});
+
+  jQuery('#save-profile').click( function () {
+  	console.log("save-profile");
+   _id= jQuery('#id-profile').val();
+   _pseudo=jQuery('#pseudonym-profile').val();
+   store.set('myId',{id:_id, pseudo:_pseudo});
+	});
+
+  function loadID() {
+  	if (store.get('myId')) {
+  		   my=store.get('myId');
+  		   m=new Marker(my.id);
+		   jQuery('#photo-profile').html(m.getAvatar());
+		   jQuery('#id-profile').val(my.id);
+		   jQuery('#pseudonym-profile').val(my.pseudo);
+
+  	}
+  }
+	jQuery('#icon-profile').click( function () {
+		loadID() ;
+	});
+
+
+// Pages content
 function getHTML(contentMD) {
   	var converter = new showdown.Converter(),
     html      = converter.makeHtml(contentMD);

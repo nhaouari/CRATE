@@ -22,7 +22,7 @@ function commentsClick() {
   }
 }
 
-function addCommentToList(comment,idAuthor,name,color, currentTimestamp) {
+function addCommentToList(comment,idAuthor,pseudo,name,color, currentTimestamp) {
   let utcSeconds = currentTimestamp;
   let d = new Date(0); // The 0 there is the key, which sets the date to the epoch
   d.setUTCSeconds(utcSeconds);
@@ -35,7 +35,7 @@ function addCommentToList(comment,idAuthor,name,color, currentTimestamp) {
   let cmtbox = $(
     `<div class='comment-box ${id}' onfocus="commentBoxFocus('${id}')" onfocusout="commentBoxFocus('${id}', 'out')" tabindex="1">
       <div class='comment-head'>
-        <div id="${id}"style="background-color:${color};width: 40px;" ><img class="imageuser" src="./icons/${name}.png" alt="${name}"></div>
+        <div id="${id}"style="background-color:${color};width: 40px;" ><img class="imageuser" src="./icons/${pseudo}.png" alt="${name}"></div>
     
         <div class='comment-details'>
           <div class='comment-author'>${name}</div>
@@ -62,7 +62,10 @@ window.commentSave = () => {
 
   let color= quill.options.modules.comment.color; 
 
-  addCommentToList(comment,id,name,color, currentTimestamp)
+
+  m=Marker(id);
+
+  addCommentToList(comment,id,m.animal,name,color,currentTimestamp)
   //jQuery('.ql-clean').click() ;
 }
 

@@ -36,11 +36,9 @@
                  let preview = window.location.href.split('?')[0]+'?'+GUID2();
                  let tooltip = this.quill.theme.tooltip;
                  tooltip.edit('link', preview);
-                
                 },
                 undo: function(value) {
                   this.quill.history.undo();
-                  
                 },
                 redo: function(value) {
                   this.quill.history.redo();
