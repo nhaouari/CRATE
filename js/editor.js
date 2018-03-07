@@ -5,8 +5,8 @@
             // custom button values
       [{ 'align': [] }],      
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+    //  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+    // [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
       [{ 'direction': 'rtl' }],                         // text direction
 
       [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
@@ -16,10 +16,11 @@
       [{ 'font': [] }],
       ['blockquote', 'code-block'],
       ['formula','image','video','link'],
+      ['clean'],                                    // remove formatting button
       ['subdocument'],
       ['comments-toggle'], // comment color on/off
-      ['comments-add'], // comment add
-      ['clean']                                         // remove formatting button
+      ['comments-add'] // comment add
+          
     ];
 
     Quill.register('modules/cursors', QuillCursors);
@@ -67,7 +68,16 @@
 
      theme: 'snow'
         });
+$(".ql-subdocument .ql-comments-toggle .ql-comments-add").attr('data-toggle','tooltip');
+$(".ql-comments-toggle,.ql-comments-add").css({"position":"relative","top":"-5px"});
 
 $(".ql-subdocument").html('<strong>SUB</strong>');
+$(".ql-subdocument").attr('title','Add subdocument');
 
+$('.ql-comments-toggle').html('<i class="fa fa-comments"></i>');
+$(".ql-comments-toggle").attr('title','Show/hide comments');
+
+
+$('.ql-comments-add').html('<i class="fa fa-comment"></i>');
+$(".ql-comments-add").attr('title','Add comment');
 

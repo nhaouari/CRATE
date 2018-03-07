@@ -127,9 +127,20 @@ left:30px;
 
 .comment-body {
     padding: 10px 0;
+    text-align: left;
 }
 
+.comment-details {
+position: relative;
+    top: -42px;
+    text-align: left;
+    margin-left: 46px;
 
+}
+
+.comment-head {
+      height: 50px;
+}
 
 
 .navbar {

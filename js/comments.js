@@ -19,6 +19,13 @@ function commentServerTimestamp() {
 function commentsClick() {
   if (!$('.ql-editor').hasClass('ql-comments')) {
     $('.ql-editor .ql-comment').removeAttr('style');
+    $('#comments').hide();
+    $('.editor').css('width','100%');
+  } else 
+  {
+    $('.editor').css('width','70%');
+    $('#comments').show();
+
   }
 }
 
@@ -26,9 +33,7 @@ function addCommentToList(comment,idAuthor,pseudo,name,color, currentTimestamp) 
   let utcSeconds = currentTimestamp;
   let d = new Date(0); // The 0 there is the key, which sets the date to the epoch
   d.setUTCSeconds(utcSeconds);
-  console.log("currentTimestamp= "+currentTimestamp);
-  console.log("d= "+d);
-   date = dateFormat(d, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+  date = dateFormat(d, "dddd, mmmm dS, yyyy, h:MM:ss TT");
 
   let id = 'ql-comment-'+idAuthor+'-'+utcSeconds;
 
@@ -46,8 +51,8 @@ function addCommentToList(comment,idAuthor,pseudo,name,color, currentTimestamp) 
   
     </div>`
   );
-  console.log('addCommentToList Event')
-  $('#comments').append(cmtbox)
+  
+  $('#comments').append(cmtbox);
 }
 
 
@@ -63,9 +68,9 @@ window.commentSave = () => {
   let color= quill.options.modules.comment.color; 
 
 
-  m=Marker(id);
+  m=new Marker(id);
 
-  addCommentToList(comment,id,m.animal,name,color,currentTimestamp)
+  addCommentToList(comment,id,name,store.get('myId').pseudo,color,currentTimestamp)
   //jQuery('.ql-clean').click() ;
 }
 
