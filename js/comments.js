@@ -31,8 +31,7 @@ function commentsClick() {
 
 function addCommentToList(comment,idAuthor,pseudo,name,color, currentTimestamp) {
   let utcSeconds = currentTimestamp;
-  let d = new Date(0); // The 0 there is the key, which sets the date to the epoch
-  d.setUTCSeconds(utcSeconds);
+  let d = new Date(); // The 0 there is the key, which sets the date to the epoch
   date = dateFormat(d, "dddd, mmmm dS, yyyy, h:MM:ss TT");
 
   let id = 'ql-comment-'+idAuthor+'-'+utcSeconds;

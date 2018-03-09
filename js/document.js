@@ -24,24 +24,20 @@ function justDoIt (signalingOptions, name, importFromJSON){
     
     if (signalingOptions) { 
       options.signalingOptions = signalingOptions; 
-      
-      //Check local storage
-      if (store.get("CRATE2-"+signalingOptions.session)) {
-          // Import causality and vector 
-           options.importFromJSON = store.get("CRATE2-"+signalingOptions.session);
-      }
+
+       if (store.get("CRATE2-"+signalingOptions.session)) {
+        options.importFromJSON = store.get("CRATE2-"+signalingOptions.session);
+        
+        if (!options.signalingOptions){ options.signalingOptions = {}; };
+     
+        options.signalingOptions.connect = false; // (TODO) may change this val
+    };
 
     };
     
 
     if (name) { options.name = name; };
-    
-    if (importFromJSON) {
-        options.importFromJSON = importFromJSON;
-        if (!options.signalingOptions){ options.signalingOptions = {}; };
-        options.signalingOptions.connect = true; // (TODO) may change this val
-    };
-
+  
     // #1 add a cell into the list of editors
 
     var editorContainer = $("#editor");
