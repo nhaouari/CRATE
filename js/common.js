@@ -1,4 +1,8 @@
 
+
+
+
+
 // Profile
   jQuery('#generate-profile').click( function () {
    id= GUID2();
@@ -30,6 +34,11 @@
 		loadID() ;
 	});
 
+
+
+// Mange content pages 
+var pages = {};
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -52,20 +61,13 @@ function getHTML(contentMD) {
 
 $( document ).ready(function() {
    id= getParameterByName("id");
-   $("#"+id).trigger("click");
+   $("#content").html(pages["#"+id]);
 });
 
 
 
 function addPage(id,contentMD) {
-  $(id).click( function () {
-
-   html2 = `<div class="col-md-10 col-md-offset-1 text-justify markdown-body">${getHTML(contentMD)}</div>`;
-
-    $("#content").html(html2);
-  }
-
-  	) ;
+pages[id]=`<div class="col-md-10 col-md-offset-1 text-justify markdown-body">${getHTML(contentMD)}</div>`;
 }
 
 
