@@ -30,6 +30,17 @@
 		loadID() ;
 	});
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+
 
 // Pages content
 function getHTML(contentMD) {
@@ -37,6 +48,13 @@ function getHTML(contentMD) {
     html      = converter.makeHtml(contentMD);
     return html;
 }
+
+
+$( document ).ready(function() {
+   id= getParameterByName("id");
+   $("#"+id).trigger("click");
+});
+
 
 
 function addPage(id,contentMD) {

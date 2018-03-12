@@ -20,17 +20,20 @@ function justDoIt (signalingOptions, name, importFromJSON){
     // #0 analyse the arguments
     // (TODO) fix the uglyness of this code
     var options = {webRTCOptions: connectionOptions };
+    
     options.webRTCOptions.trickle = true;
     
     if (signalingOptions) { 
       options.signalingOptions = signalingOptions; 
 
        if (store.get("CRATE2-"+signalingOptions.session)) {
+        
         options.importFromJSON = store.get("CRATE2-"+signalingOptions.session);
         
-        if (!options.signalingOptions){ options.signalingOptions = {}; };
-     
-        options.signalingOptions.connect = false; // (TODO) may change this val
+        //if (!options.signalingOptions){ options.signalingOptions = {}; };
+        options.signalingOptions = {};
+       // options.signalingOptions.session=signalingOptions.session;
+        options.signalingOptions.connect = true; // (TODO) may change this val
     };
 
     };
