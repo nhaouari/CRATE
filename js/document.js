@@ -27,11 +27,11 @@ function justDoIt (signalingOptions, name, importFromJSON){
       options.signalingOptions = signalingOptions; 
 
        if (store.get("CRATE2-"+signalingOptions.session)) {
-        
+         options.signalingOptions = {};
         options.importFromJSON = store.get("CRATE2-"+signalingOptions.session);
         
         //if (!options.signalingOptions){ options.signalingOptions = {}; };
-        options.signalingOptions = {};
+       // options.signalingOptions = {};
        // options.signalingOptions.session=signalingOptions.session;
         options.signalingOptions.connect = true; // (TODO) may change this val
     };
@@ -44,6 +44,9 @@ function justDoIt (signalingOptions, name, importFromJSON){
     // #1 add a cell into the list of editors
 
     var editorContainer = $("#editor");
+
+       console.log(" options");
+      console.dir(options);
     cratify = editorContainer.cratify(options)[0];
 
 };
