@@ -50,3 +50,4 @@ function justDoIt (signalingOptions, name, importFromJSON){
     cratify = editorContainer.cratify(options)[0];
 
 };
+

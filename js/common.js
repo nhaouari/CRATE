@@ -18,12 +18,18 @@
    _id= jQuery('#id-profile').val();
    _pseudo=jQuery('#pseudonym-profile').val();
    store.set('myId',{id:_id, pseudo:_pseudo});
+    if (crate_model) 
+      {
+        crate_model.setNewID(_id);
+      }
+   
+
 	});
 
   function loadID() {
   	if (store.get('myId')) {
-  		   my=store.get('myId');
-  		   m=new Marker(my.id);
+  		 my=store.get('myId');
+  		 m=new Marker(my.id);
 		   jQuery('#photo-profile').html(m.getAvatar());
 		   jQuery('#id-profile').val(my.id);
 		   jQuery('#pseudonym-profile').val(my.pseudo);

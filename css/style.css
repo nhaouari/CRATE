@@ -7,12 +7,23 @@ margin-top: 20px;
 .editor {
     min-height: 300px;
     float: left;
-    width: 70%;
+    width: 100%;
   }
+
+.commentFocus {
+background-color: red!important;
+
+}
+
+.ql-comments [ql-comment] {
+ background-color: yellow;
+}
+
 
  #comments {
     float: left;
-    width: 30%;
+    width: 0%;
+    display: none;
             }  
 i {
 cursor: pointer;

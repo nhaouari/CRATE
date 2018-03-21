@@ -1,5 +1,4 @@
 let commentCallback;
-$('.ql-editor').removeClass('ql-comments');
 
 function commentAddClick(callback) {
 
@@ -18,22 +17,12 @@ function commentServerTimestamp() {
 }
 
 function commentsClick() {
-  if ($('#comments').is(":visible")) {
-
-
-    if($('.ql-editor').hasClass('ql-comments')) {$('.ql-editor').removeClass('ql-comments');}
-    
-
+  if (!$('.ql-editor').hasClass('ql-comments')) {
+    $('.ql-editor .ql-comment').removeAttr('style');
     $('#comments').hide();
-    $('#comments').css('width','0%');
     $('.editor').css('width','100%');
-   // $('.ql-editor .ql-comment').removeAttr('style');
   } else 
   {
-      $('.ql-comments').addClass('comment');
-    if(!$('.ql-editor').hasClass('ql-comments')) {$('.ql-editor').addClass('ql-comments');}
-    
-    $('#comments').css('width','30%');
     $('.editor').css('width','70%');
     $('#comments').show();
 
@@ -85,13 +74,13 @@ window.commentSave = () => {
 }
 
 window.commentBoxFocus = function(id, type) {
- 
-if (type!=='out') {
-  $('.ql-comments #'+id).addClass('commentFocus');
-  $('#comments .'+id).css('border-color', 'red');
-  } else {
-  $('.ql-comments #'+id).removeClass('commentFocus');
+  $('.ql-comments #'+id).css('background-color', 'yellow');
   $('#comments .comment-box').css('border-color', '#F0F0F0');
+  
+  console.log(id+" : Focus type :"+type);
+  if (type!=='out') {
+    $('.ql-comments #'+id).css('background-color', 'red');
+    $('#comments .'+id).css('border-color', 'red');
   }
   
 }
