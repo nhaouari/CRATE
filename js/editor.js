@@ -81,3 +81,5 @@ $(".ql-comments-toggle").attr('title','Show/hide comments');
 $('.ql-comments-add').html('<i class="fa fa-comment"></i>');
 $(".ql-comments-add").attr('title','Add comment');
 
+ window.bufferSpray=[];
+window.bufferSprayhash=[];

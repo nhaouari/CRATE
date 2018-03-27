@@ -18,5 +18,12 @@ $.ajax({
                 urls: 'stun:23.21.150.121' } ] }; // responding
         initialize(connectionOptions);
     },
+    error: function (jqXHR, textStatus, error) {
+    var connectionOptions =  {iceServers: [ {
+                url: 'stun:23.21.150.121', // default google ones if xirsys not
+                urls: 'stun:23.21.150.121' } ] }; // responding
+        initialize(connectionOptions);
+    },
+
     async: true
 });

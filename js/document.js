@@ -28,7 +28,7 @@ function justDoIt (signalingOptions, name, importFromJSON){
 
        if (store.get("CRATE2-"+signalingOptions.session)) {
          options.signalingOptions = {};
-        options.importFromJSON = store.get("CRATE2-"+signalingOptions.session);
+         options.importFromJSON = store.get("CRATE2-"+signalingOptions.session);
         
         //if (!options.signalingOptions){ options.signalingOptions = {}; };
        // options.signalingOptions = {};
@@ -40,14 +40,131 @@ function justDoIt (signalingOptions, name, importFromJSON){
     
 
     if (name) { options.name = name; };
-  
+
     // #1 add a cell into the list of editors
 
     var editorContainer = $("#editor");
 
-       console.log(" options");
-      console.dir(options);
+    console.log(" options");
+    console.dir(options);
     cratify = editorContainer.cratify(options)[0];
+    findremote();
 
 };
+
+
+
+
+// Remote session 
+
+
+function findremote() {
+var remotesave= $("#remotesave"); 
+
+  // There is a configured server
+if (store.get("remoteserver"))
+{
+
+sessionID=window.crate_model.signalingOptions.session;
+
+
+$.ajax({
+    type: "GET",
+    url: store.get("remoteserver")+"/exist/"+sessionID,
+    success: function (data, status) {
+      console.dir(data);
+      data = JSON.parse(data);
+      if ( data.results==0) {
+          unpin(remotesave);
+      } else {
+          pin(remotesave);
+      return false;
+      }
+    },
+    async: false
+});
+
+}
+
+}
+
+
+$("#remotesave").click(function(){
+
+if (jQuery("#remotesave").hasClass('PIN')) {
+  kill();
+} else  {
+  join();
+}
+
+
+
+
+// check if the exiting document exists 
+
+  //yes show pinned icon 
+
+  //else un pinned 
+
+
+
+
+});
+
+
+
+function pin(remotesave ) {
+remotesave.css('color','green');
+remotesave.removeClass('UNPIN');
+remotesave.addClass('PIN');
+console.log("PIN");
+
+}
+
+function unpin(remotesave ) {
+remotesave.css('color','red');
+remotesave.removeClass('PIN');
+remotesave.addClass('UNPIN');
+console.log("UNPIN");
+}
+
+
+
+
+function join() {
+sessionID=window.crate_model.signalingOptions.session;
+$.ajax({
+     type: "GET",
+     url: store.get("remoteserver")+"/join/"+sessionID,
+     success: function (data, status) {
+
+     console.log("This is success");
+     findremote();
+    },
+    async: true
+});
+}
+
+function kill() {
+var r = confirm("Do you want remove document from remote server!");
+if (r == true) {
+ sessionID=window.crate_model.signalingOptions.session;
+$.ajax({
+     type: "GET",
+     url: store.get("remoteserver")+"/kill/"+sessionID,
+     success: function (data, status) {
+     findremote();
+    },
+    async: false
+});
+  
+
+
+
+} else {
+    txt = "You have Cancel the remove!";
+}
+
+
+}
 
