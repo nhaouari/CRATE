@@ -1,6 +1,13 @@
 
-
-
+if(!store.get("config")) {
+var config = {
+signalingServer:"https://ancient-shelf-9067.herokuapp.com"  ,
+storageServer: "http://127.0.0.1:8082",
+stun:'23.21.150.121' // default google ones if xirsys not
+};
+} else {
+var config = store.get("config");
+}
 
 
 // Profile
@@ -18,6 +25,7 @@
    _id= jQuery('#id-profile').val();
    _pseudo=jQuery('#pseudonym-profile').val();
    store.set('myId',{id:_id, pseudo:_pseudo});
+    
     if (crate_model) 
       {
         crate_model.setNewID(_id);
@@ -41,6 +49,25 @@
 	});
 
 
+jQuery('#icon-config').click( function () {
+    jQuery('#signalingServer').val(config.signalingServer);
+    jQuery('#storageServer').val(config.storageServer);
+    jQuery('#stun').val(config.stun);
+
+    $('#config').toggle();
+  });
+
+
+jQuery('#save-config').click( function () {
+
+    config.signalingServer = jQuery('#signalingServer').val();
+    config.storageServer = jQuery('#storageServer').val();
+    config.stun = jQuery('#stun').val();
+
+    store.set("config",config);
+
+    $('#config').toggle();
+  });
 
 // Mange content pages 
 var pages = {};

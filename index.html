@@ -37,6 +37,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
+         <li><a id="icon-config" href="#config"><i class="fa fa-wrench"></i> Config</a></li>
         <li class="active"><a href="./index.html">Home</a></li>
         <li><a href="./index.html?id=about" id="about">About</a></li>
         <li><a href="./index.html?id=project" id="project">Project</a></li>
@@ -55,7 +56,6 @@
 </nav>
 
   <div id="profile" class="collapse" >
-    <form class="form form-signup" role="form">
                      <div class="form-group">
                        <div id="photo-profile" >
                         <i class="fa fa-user fa-5x"></i>
@@ -83,14 +83,45 @@
                 </div>  
       
     </div>
-</div>
+
 
 
 <!--Content-->
  
 <div class="container-fluid"> 
    <span id="forkongithub"><a href="https://github.com/nhaouari/CRATE">Fork me on GitHub</a></span>
-<div class="col-md-10 col-md-offset-1" id="content"> 
+ <div class="row">
+
+<div class="col-md-3">
+ <div id="config" >
+    <h1>Configuration</h1>       
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                            <input type="text" id="signalingServer" class="form-control" placeholder="Signaling Server"/>
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                            <input type="text" id="storageServer" class="form-control" placeholder="CRATE Storage server"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                            <input type="text" id="stun" class="form-control" placeholder="Default stun"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                    <button  id="save-config" type="button" class="btn btn-primary" style="float: right;">Save</button>
+                    </div>
+  </div>
+  </div>
+<div class="col-md-6 id="content"> 
 <div class="container text-center">
  <a href="./document.html"><i class="fa fa-plus-circle " style="
   font-size: 60px; color:gray;   float: right;
@@ -99,6 +130,7 @@
   <div id='documents'>
 </div>
   </div>
+</div>
 </div>
 </div>
 </div> 

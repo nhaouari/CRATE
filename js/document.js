@@ -5,7 +5,7 @@ function initialize(connOptions){
     // #A check the url if the editor must create documents already
     if ((document.URL.split("?")).length>1){
         var editingSessions = (window.location.href.split('?')[1]).split('&');
-            justDoIt({server:  'https://ancient-shelf-9067.herokuapp.com',
+            justDoIt({server:  config.signalingServer,
                           session: editingSessions[0],
                           connect: true});
         } else 
@@ -62,7 +62,7 @@ function findremote() {
 var remotesave= $("#remotesave"); 
 
   // There is a configured server
-if (store.get("remoteserver"))
+if (config.storageServer)
 {
 
 sessionID=window.crate_model.signalingOptions.session;
@@ -70,7 +70,7 @@ sessionID=window.crate_model.signalingOptions.session;
 
 $.ajax({
     type: "GET",
-    url: store.get("remoteserver")+"/exist/"+sessionID,
+    url: config.storageServer+"/exist/"+sessionID,
     success: function (data, status) {
       console.dir(data);
       data = JSON.parse(data);
@@ -83,7 +83,6 @@ $.ajax({
     },
     async: false
 });
-
 }
 
 }
@@ -135,10 +134,17 @@ function join() {
 sessionID=window.crate_model.signalingOptions.session;
 $.ajax({
      type: "GET",
-     url: store.get("remoteserver")+"/join/"+sessionID,
+     url: config.storageServer+"/join/"+sessionID,
      success: function (data, status) {
 
      console.log("This is success");
+     //TODO: chANGE IT LATER
+setTimeout(function(){    
+  crate_model.csh.startJoining(crate_model.signalingOptions);
+  crate_model.rps.updateState(); 
+}, 
+  3000);
+  
      findremote();
     },
     async: true
@@ -151,7 +157,7 @@ if (r == true) {
  sessionID=window.crate_model.signalingOptions.session;
 $.ajax({
      type: "GET",
-     url: store.get("remoteserver")+"/kill/"+sessionID,
+     url: config.storageServer+"/kill/"+sessionID,
      success: function (data, status) {
      findremote();
     },

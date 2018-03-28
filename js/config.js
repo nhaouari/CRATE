@@ -1,4 +1,9 @@
 var connectionOptions = "";
+
+
+
+
+
 // #2 get stun servers
 $.ajax({
     type: "POST",
@@ -14,14 +19,14 @@ $.ajax({
     success: function (addresses, status) {
         var connectionOptions = (addresses && addresses.d) ||
             {iceServers: [ {
-                url: 'stun:23.21.150.121', // default google ones if xirsys not
-                urls: 'stun:23.21.150.121' } ] }; // responding
+                url: 'stun:'+config.stun, // default google ones if xirsys not
+                urls: 'stun:'+config.stun } ] }; // responding
         initialize(connectionOptions);
     },
     error: function (jqXHR, textStatus, error) {
     var connectionOptions =  {iceServers: [ {
-                url: 'stun:23.21.150.121', // default google ones if xirsys not
-                urls: 'stun:23.21.150.121' } ] }; // responding
+                uurl: 'stun:'+config.stun, // default google ones if xirsys not
+                urls: 'stun:'+config.stun } ] }; // responding
         initialize(connectionOptions);
     },
 

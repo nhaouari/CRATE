@@ -305,3 +305,9 @@ position: relative;
   width:70px;
   height: 70px;
 }
+
+
+#config {
+    padding: 30px;
+    display: none;
+}
