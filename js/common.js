@@ -1,111 +1,118 @@
-
-if(!store.get("config")) {
-var config = {
-signalingServer:"https://ancient-shelf-9067.herokuapp.com"  ,
-storageServer: "http://127.0.0.1:8082",
-stun:'23.21.150.121' // default google ones if xirsys not
-};
+if (!store.get("config")) {
+  var config = {
+    signalingServer: "https://ancient-shelf-9067.herokuapp.com",
+    storageServer: "http://127.0.0.1:8082",
+    stun: '23.21.150.121' // default google ones if xirsys not
+  };
 } else {
-var config = store.get("config");
+  var config = store.get("config");
 }
 
 
 // Profile
-  jQuery('#generate-profile').click( function () {
-   id= GUID2();
-   m=new Marker(id);
-   jQuery('#photo-profile').html(m.getAvatar());
-   jQuery('#id-profile').val(id);
-   jQuery('#pseudonym-profile').val(m.animal);
-  
-	});
+jQuery('#generate-profile').click(function() {
+  generateID()
+});
 
-  jQuery('#save-profile').click( function () {
-  	console.log("save-profile");
-   _id= jQuery('#id-profile').val();
-   _pseudo=jQuery('#pseudonym-profile').val();
-   store.set('myId',{id:_id, pseudo:_pseudo});
-    
-    if (crate_model) 
-      {
-        crate_model.setNewID(_id);
-      }
-   
+function generateID() {
+  id = GUID2();
+  m = new Marker(id);
+  jQuery('#photo-profile').html(m.getAvatar());
+  jQuery('#id-profile').val(id);
+  jQuery('#pseudonym-profile').val(m.animal);
+}
 
-	});
+jQuery('#save-profile').click(function() {
+  console.log("save-profile");
+  _id = jQuery('#id-profile').val();
+  _pseudo = jQuery('#pseudonym-profile').val();
+  store.set('myId', {
+    id: _id,
+    pseudo: _pseudo
+  });
 
-  function loadID() {
-  	if (store.get('myId')) {
-  		 my=store.get('myId');
-  		 m=new Marker(my.id);
-		   jQuery('#photo-profile').html(m.getAvatar());
-		   jQuery('#id-profile').val(my.id);
-		   jQuery('#pseudonym-profile').val(my.pseudo);
-
-  	}
+  if (crate_model) {
+    crate_model.setNewID(_id);
   }
-	jQuery('#icon-profile').click( function () {
-		loadID() ;
-	});
 
 
-jQuery('#icon-config').click( function () {
-    jQuery('#signalingServer').val(config.signalingServer);
-    jQuery('#storageServer').val(config.storageServer);
-    jQuery('#stun').val(config.stun);
+});
 
-    $('#config').toggle();
-  });
+function loadID() {
+  if (store.get('myId')) {
+    my = store.get('myId');
+    m = new Marker(my.id);
+    jQuery('#photo-profile').html(m.getAvatar());
+    jQuery('#id-profile').val(my.id);
+    jQuery('#pseudonym-profile').val(my.pseudo);
+
+  } else {
+    generateID() 
+  }
+}
+jQuery('#icon-profile').click(function() {
+  loadID();
+});
 
 
-jQuery('#save-config').click( function () {
+jQuery('#icon-config').click(function() {
+  jQuery('#signalingServer').val(config.signalingServer);
+  jQuery('#storageServer').val(config.storageServer);
+  jQuery('#stun').val(config.stun);
 
-    config.signalingServer = jQuery('#signalingServer').val();
-    config.storageServer = jQuery('#storageServer').val();
-    config.stun = jQuery('#stun').val();
+  $('#config').toggle();
+});
 
-    store.set("config",config);
 
-    $('#config').toggle();
-  });
+jQuery('#save-config').click(function() {
+
+  config.signalingServer = jQuery('#signalingServer').val();
+  config.storageServer = jQuery('#storageServer').val();
+  config.stun = jQuery('#stun').val();
+
+  store.set("config", config);
+
+  $('#config').toggle();
+});
 
 // Mange content pages 
 var pages = {};
 
 function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 
 
 // Pages content
 function getHTML(contentMD) {
-  	var converter = new showdown.Converter(),
-    html      = converter.makeHtml(contentMD);
-    return html;
+  var converter = new showdown.Converter(),
+    html = converter.makeHtml(contentMD);
+  return html;
 }
 
 
-$( document ).ready(function() {
-   id= getParameterByName("id");
-   $("#content").html(pages["#"+id]);
+$(document).ready(function() {
+  id = getParameterByName("id");
+  $("#content").html(pages["#" + id]);
 });
 
 
 
-function addPage(id,contentMD) {
-pages[id]=`<div class="col-md-10 col-md-offset-1 text-justify markdown-body">${getHTML(contentMD)}</div>`;
+function addPage(id, contentMD) {
+  pages[id] = `<div class="col-md-10 col-md-offset-1 text-justify markdown-body">${getHTML(contentMD)}</div>`;
 }
 
 
 
-about=`# Features
+
+about = `# Features
 
 **CRATE** aims to enable collaborative editing anywhere, at anytime, whatever the
 number of participants, without third party. Compared to Google Docs:
@@ -119,7 +126,7 @@ questions](https://github.com/nhaouari/CRATE/issues).`;
 
 
 
-addPage("#about",about);
+addPage("#about", about);
 
 
 project = `CRATE is developed within two research projects: The CominLabs project
@@ -129,9 +136,9 @@ project = `CRATE is developed within two research projects: The CominLabs projec
 The CRATE editor is mainly
 developed by [GDD team](https://sites.google.com/site/gddlina/),
 [LINA](https://www.lina.univ-nantes.fr/), [Nantes
-University](http://www.univ-nantes.fr/)`; 
+University](http://www.univ-nantes.fr/)`;
 
-addPage("#project",project);
+addPage("#project", project);
 
 
 publications = `
@@ -149,21 +156,21 @@ Document Changes: Modeling, Detection, Storage and Visualization (Vol. 1008,
 pp. 0-7).</i>
 
 [3] Nédelec, B., Tanke, J., Frey, D., Molli, P., Mostefaoui, A. (2015).
-[Spray, an Adaptive Random Peer Sampling Protocol](https://hal.archives-ouvertes.fr/hal-01203363/file/spray.pdf). <i>Technical Report.</i>`; 
+[Spray, an Adaptive Random Peer Sampling Protocol](https://hal.archives-ouvertes.fr/hal-01203363/file/spray.pdf). <i>Technical Report.</i>`;
 
-addPage("#publications",publications);
+addPage("#publications", publications);
 
-contact = ``; 
+contact = ``;
 
-addPage("#contact",contact);
+addPage("#contact", contact);
 
 
 
-footer= `Developed by [**GDD team**](https://sites.google.com/site/gddlina/)
+footer = `Developed by [**GDD team**](https://sites.google.com/site/gddlina/)
 
 [**LS2N**](https://www.ls2n.fr) Lab
 
  2018
 `;
 
- $("#footer").html(getHTML(footer));
+$("#footer").html(getHTML(footer));

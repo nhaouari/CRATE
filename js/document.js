@@ -43,12 +43,11 @@ function justDoIt (signalingOptions, name, importFromJSON){
 
     // #1 add a cell into the list of editors
 
-    var editorContainer = $("#editor");
+    //var editorContainer = $("#editor");
 
-    console.log(" options");
-    console.dir(options);
-    cratify = editorContainer.cratify(options)[0];
-    findremote();
+    options.user = store.get('myId')
+    window.session = new session(options);
+    loadID()
 
 };
 
@@ -72,7 +71,6 @@ $.ajax({
     type: "GET",
     url: config.storageServer+"/exist/"+sessionID,
     success: function (data, status) {
-      console.dir(data);
       data = JSON.parse(data);
       if ( data.results==0) {
           unpin(remotesave);
