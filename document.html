@@ -1,194 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>CRATEv2</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-
-  <link rel="stylesheet" href="./css/style.css"/>
-
-  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet"
-          href="./node_modules/font-awesome/css/font-awesome.min.css" />
-  
-  <link rel="stylesheet" href="./node_modules/katex/dist/katex.min.css">
-  <link href="./node_modules/quill/dist/quill.snow.css" rel="stylesheet">
-  <link rel="stylesheet" href="./node_modules/quill-cursors/dist/quill-cursors.css">
-  <link rel='stylesheet' type='text/css' href='./node_modules/quill-comment/quill.comment.css' />
-
-</head>
-
-
-
-
-<body>
-
-<div id="header">
-<!--NAVBAR-->
-<nav class="navbar navbar-inverse">
- 
-
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-
-      <a class="navbar-brand" href="./index.html">CRATEv2</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="./index.html">Home</a></li>
-        <li><a href="./index.html?id=about" id="about">About</a></li>
-        <li><a href="./index.html?id=project" id="project">Project</a></li>
-        <li><a href="./index.html?id=publications" id="publications">Publications</a></li>
-        <li><a href="./index.html?id=contact" id="contact">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a id="icon-profile" href="#profile" data-toggle="collapse" href="#profile" role="button" aria-expanded="false" aria-controls="profile"><i class="fa fa-user" style="
-    font-size: 20px;
-    margin: 5px;
-"></i></a>
-</li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-  <div id="profile" class="collapse" >
-    <form class="form form-signup" role="form">
-                     <div class="form-group">
-                       <div id="photo-profile" >
-                        <i class="fa fa-user fa-5x"></i>
-                       </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                            <input type="text" id="id-profile" class="form-control" placeholder="ID" readonly/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
-                            </span>
-                            <input id="pseudonym-profile" type="text" class="form-control" placeholder="Pseudonym" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                    <button  id="generate-profile" type="button" class="btn btn-primary">Generate</button>
-                    </div>
-                    <div class="form-group">
-                    <button  id="save-profile" type="button" class="btn btn-default">Save</button>
-                    </div>
-                </div>  
-      
-    </div>
-</div>
-
-<!--Content-->  
-<div class="container-fluid text-center"> 
- <span id="forkongithub"><a href="https://github.com/nhaouari/CRATE">Fork me on GitHub</a></span>
-
-  <div class="row content">
-    <div class="col-md-10 col-md-offset-1 text-center" id="content"> 
-      
-      <div id="head">
-          <div id="firstrow" class="row">
-              <div id="connectionState">
-              </div>
-              <div id="title">
-              Untitled document
-              </div>
-              <div id="features"> 
-                <div id="shareicon">
-                  <i class="fa fa-link fa-2x ficon2"></i>
-                </div>
-
-                <div id="saveicon"><i class="fa fa-floppy-o fa-2x ficon2"></i></div>
-                <div id="remotesave" style=" width: 20px;">
-                 
-                </i><i class="fa fa-cloud fa-2x ficon2"></i>
-
-</div>
-              </div>
+  <head>
+    <title>CRATEv2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./node_modules/katex/dist/katex.min.css">
+    <link href="./node_modules/quill/dist/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="./node_modules/quill-cursors/dist/quill-cursors.css">
+    <link rel='stylesheet' type='text/css' href='./node_modules/quill-comment/quill.comment.css' />
+  </head>
+  <body>
+    <div id="header">
+      <!--NAVBAR-->
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./index.html">CRATEv2</a>
           </div>
-
-      <div id="sharinglink" class="row">
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="./index.html">Home</a></li>
+              <li><a href="./index.html?id=about" id="about">About</a></li>
+              <li><a href="./index.html?id=project" id="project">Project</a></li>
+              <li><a href="./index.html?id=publications" id="publications">Publications</a></li>
+              <li><a href="./index.html?id=contact" id="contact">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a id="icon-profile" href="#profile" data-toggle="collapse" href="#profile" role="button" aria-expanded="false" aria-controls="profile"><i class="fa fa-user" style="
+                font-size: 20px;
+                margin: 5px;
+              "></i></a>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      </div>
-       
-      <div id="content" class="content">
-            <div id="users" class="row"> 
-              <div id="state" style="margin-left: -50px;"">
-                <i class="fa fa-globe fa-3x ficon"></i>
-              </div>
-             
-
-              </div>
-            <div id="editorSection">
-                <div id="editor" class="editor">
-                 </div> 
-                <div id="comments">
-          
-                </div>
+    </nav>
+    <div id="profile" class="collapse">
+      <form class="form form-signup" role="form">
+        <div class="form-group">
+          <div id="photo-profile">
+            <i class="fa fa-user fa-5x"></i>
           </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <input type="text" id="id-profile" class="form-control" placeholder="ID" readonly/>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
+          </span>
+          <input id="pseudonym-profile" type="text" class="form-control" placeholder="Pseudonym" />
+        </div>
+      </div>
+      <div class="form-group">
+        <button id="generate-profile" type="button" class="btn btn-primary">Generate</button>
+      </div>
+      <div class="form-group">
+        <button id="save-profile" type="button" class="btn btn-default">Save</button>
       </div>
     </div>
   </div>
 </div>
+<!--Content-->
+<div class="container-fluid text-center">
+  <span id="forkongithub"><a href="https://github.com/nhaouari/CRATE">Fork me on GitHub</a></span>
+  
 
+  <div class="row" id="content-default" >
+  </div>
+
+</div>
 <!-- Comment Modal -->
- <div id="inputCommentModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-        
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>Comment</h4>
-                    <p><textarea name="commentInput" id="commentInput" style="width: 100%;" rows="5"></textarea></p>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="commentSave()">Save</button>
-                    </div>
-                </div>
-        
-            </div>
-        </div> 
-
+<div id="inputCommentModal " class="modal fade " role="dialog ">
+  <div class="modal-dialog ">
+    
+    <!-- Modal content-->
+    <div class="modal-content ">
+      <div class="modal-body ">
+        <button type="button " class="close " data-dismiss="modal ">&times;</button>
+        <h4>Comment</h4>
+        <p><textarea name="commentInput " id="commentInput " style="width: 100%; " rows="5 "></textarea></p>
+      </div>
+      <div class="modal-footer ">
+        <button type="button " class="btn btn-default " data-dismiss="modal " onclick="commentSave() ">Save</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
 <!--FOOTER-->
-
-<footer class="container-fluid text-center">
-  <div id="footer"></div>
+<footer class="container-fluid text-center ">
+  <div id="footer "></div>
 </footer>
+<script src="./node_modules/jquery/dist/jquery.min.js "></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js "></script>
+<script src="./node_modules/katex/dist/katex.min.js "></script>
+<script src="./node_modules/quill/dist/quill.min.js "></script>
+<script src="./node_modules/quill-cursors/dist/quill-cursors.min.js "></script>
+<script src="./node_modules/quill-comment/quill-comment.js "> </script>
+<script src="./node_modules/dateformat/lib/dateformat.js "></script>
+<script src="./node_modules/store/dist/store.legacy.min.js "></script>
+<script src="./node_modules/showdown/dist/showdown.min.js "></script>
 
-
-    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./node_modules/katex/dist/katex.min.js"></script>
-    <script src="./node_modules/quill/dist/quill.min.js"></script>  
-    <script src="./node_modules/quill-cursors/dist/quill-cursors.min.js"></script> 
-    <script src="./node_modules/quill-comment/quill-comment.js"> </script>  
-    <script src="./node_modules/dateformat/lib/dateformat.js"></script>  
-    <script src="./node_modules/store/dist/store.legacy.min.js"></script>
-    <script src="./node_modules/showdown/dist/showdown.min.js"></script>
-
-  
-    <script src="./js/common.js"></script>
-     <script src="../jquery-crate/build/jquery-crate.bundle.js"></script> 
-  <!-- <script src="./js/jquery-crate.bundle.js"></script>   --> 
-
-    <script src="./js/comments.js"></script>
-    <script src="./js/editor.js"></script>
-    <script src="./js/config.js"></script>
-    <script src="./js/document.js"></script>
-
-
+<script src="./js/common.js "></script>
+<script src="../jquery-crate/build/jquery-crate.bundle.js "></script>
+<!-- <script src="./js/jquery-crate.bundle.js "></script>   -->
+<script src="./js/comments.js "></script>
+<script src="./js/config.js "></script>
+<script src="./js/document.js "></script>
 </body>
 </html>
