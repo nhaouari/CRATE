@@ -4,6 +4,31 @@
 margin-top: 20px;
 
 }
+
+.ql-tooltip {
+  left:0 !important;;
+}
+.big-container {
+  width:10000%;
+}
+  
+
+.activeEditor {
+  box-shadow: 2px 1px 24px rgba(0, 0, 0, 0.4);
+}
+
+
+.editorContainer {
+ float: left  !important;
+ width: 45vw !important;
+ margin-top: 25px;
+ padding-bottom: 25px !important;
+ padding-right:45px !important;
+ padding-left: 45px !important;
+
+}
+
+
 .editor {
     min-height: 300px;
     float: left;
@@ -42,7 +67,7 @@ position: relative;
 }
 
 #title {
-font-size: xx-large;
+font-size: x-large;
 float: left;
 min-width: 400px;
 text-align:  left;
@@ -129,7 +154,7 @@ left:30px;
 
 .comment-author {
     color: #444444;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .comment-date {

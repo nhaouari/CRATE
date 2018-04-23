@@ -1,3 +1,4 @@
+
 if (!store.get("config")) {
   var config = {
     signalingServer: "https://ancient-shelf-9067.herokuapp.com",
@@ -15,8 +16,9 @@ jQuery('#generate-profile').click(function() {
 });
 
 function generateID() {
-  id = GUID2();
+  id = session.GUID();
   m = new Marker(id);
+
   jQuery('#photo-profile').html(m.getAvatar());
   jQuery('#id-profile').val(id);
   jQuery('#pseudonym-profile').val(m.animal);
@@ -31,11 +33,6 @@ jQuery('#save-profile').click(function() {
     pseudo: _pseudo
   });
 
-  if (crate_model) {
-    crate_model.setNewID(_id);
-  }
-
-
 });
 
 function loadID() {
@@ -47,7 +44,8 @@ function loadID() {
     jQuery('#pseudonym-profile').val(my.pseudo);
 
   } else {
-    generateID() 
+    generateID()
+
   }
 }
 jQuery('#icon-profile').click(function() {
@@ -108,7 +106,6 @@ $(document).ready(function() {
 function addPage(id, contentMD) {
   pages[id] = `<div class="col-md-10 col-md-offset-1 text-justify markdown-body">${getHTML(contentMD)}</div>`;
 }
-
 
 
 
