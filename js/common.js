@@ -1,14 +1,23 @@
 
+
 if (!store.get("config")) {
   var config = {
-    signalingServer: "https://ancient-shelf-9067.herokuapp.com",
-    storageServer: "http://127.0.0.1:8082",
+    signalingServer: "https://crateserver.herokuapp.com",
+    storageServer: "https://storagecrate.herokuapp.com",
     stun: '23.21.150.121' // default google ones if xirsys not
   };
 } else {
   var config = store.get("config");
 }
 
+var config = {
+   // signalingServer: "https://crateserver.herokuapp.com",
+    signalingServer: "https://crateserver.herokuapp.com",
+    storageServer: "https://storagecrate.herokuapp.com",
+    //storageServer:"http://127.0.0.1:3000",
+    stun: '23.21.150.121' // default google ones if xirsys not
+  };
+  console.log(config)
 
 // Profile
 jQuery('#generate-profile').click(function() {
@@ -48,6 +57,7 @@ function loadID() {
 
   }
 }
+
 jQuery('#icon-profile').click(function() {
   loadID();
 });

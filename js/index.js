@@ -1,4 +1,4 @@
-
+const store= require('store')
 
 listDocuments();
 
