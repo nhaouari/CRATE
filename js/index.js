@@ -1,5 +1,3 @@
-const store= require('store')
-
 listDocuments();
 
 // Remove document and referch the list of documents
@@ -55,5 +53,23 @@ if (i==1) {
 list+=message; 
 }
 documents.html(list);
+
+}
+
+function startTour() {
+  introJs().onchange((targetElement)=>{
+  
+    console.log(targetElement.id)
+  
+   switch (targetElement.id) {
+      case "icon-profile":
+       loadID()
+      $('#profile').collapse('toggle')
+        break;
+      case "documents":
+       $('#profile').collapse('toggle')
+        break;
+    }
+  }).start();
 
 }

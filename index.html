@@ -16,8 +16,8 @@
   <link href="./node_modules/quill/dist/quill.snow.css" rel="stylesheet">
   <link rel="stylesheet" href="./node_modules/quill-cursors/dist/quill-cursors.css">
   <link rel='stylesheet' type='text/css' href='./node_modules/quill-comment/quill.comment.css' />
+  <link rel="stylesheet" href="./node_modules/intro.js/introjs.css">
 
-</head>
 
 <body>
 <div id="header">
@@ -43,9 +43,10 @@
         <li><a href="./index.html?id=project" id="project">Project</a></li>
         <li><a href="./index.html?id=publications" id="publications">Publications</a></li>
         <li><a href="./index.html?id=contact" id="contact">Contact</a></li>
+        <li ><a id="guidMe">Guide me!</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a id="icon-profile" href="#profile" data-toggle="collapse" href="#profile" role="button" aria-expanded="false" aria-controls="profile"><i class="fa fa-user" style="
+        <li><a id="icon-profile" class="icon-profile" href="#profile" data-toggle="collapse" href="#profile" role="button" aria-expanded="false" aria-controls="profile" data-intro=' choose your profile' data-step='1' data-position='left' ><i class="fa fa-user" style="
     font-size: 20px;
     margin: 5px;
 "></i></a>
@@ -55,7 +56,7 @@
   </div>
 </nav>
 
-  <div id="profile" class="collapse" >
+  <div id="profile" class="collapse " >
                      <div class="form-group">
                        <div id="photo-profile" >
                         <i class="fa fa-user fa-5x"></i>
@@ -71,14 +72,14 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
                             </span>
-                            <input id="pseudonym-profile" type="text" class="form-control" placeholder="Pseudonym" />
+                            <input id="pseudonym-profile" type="text" class="form-control" placeholder="Pseudonym" data-intro='Choose your Pseudonym here' data-step='3' data-position='left' />
                         </div>
                     </div>
                     <div class="form-group">
-                    <button  id="generate-profile" type="button" class="btn btn-primary">Generate</button>
+                    <button  id="generate-profile" type="button" class="btn btn-primary" data-intro='Generate your ID and Avatar' data-step='2' data-position='left' >Generate</button>
                     </div>
                     <div class="form-group">
-                    <button  id="save-profile" type="button" class="btn btn-default">Save</button>
+                    <button  id="save-profile" type="button" class="btn btn-default" data-intro='Save your profile' data-step='4' data-position='left'>Save</button>
                     </div>
                 </div>  
       
@@ -126,27 +127,23 @@
 <div class="container text-center">
  <a href="./document.html"><i class="fa fa-plus-circle " style="
   font-size: 60px; color:gray;   float: right;
-"></i> </a>
-  <h1> Local storage</h1>   
-  <div id='documents'>
+" data-intro='Click her to create a new document' data-step='5' data-position='left'></i> </a>
+  <h1> Local storage</h1> 
+  <div id='documents' data-intro='You will have her all the documents saved locally' data-step='4' data-position='left'>
 </div>
+
   </div>
 </div>
 </div>
 </div>
 </div> 
 
-
-
-
-
 <!--FOOTER-->
 
 <footer class="container-fluid text-center">
   <div id="footer"></div>
 </footer>
-
-
+     <script src="./node_modules/intro.js/intro.js"></script>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./node_modules/katex/dist/katex.min.js"></script>

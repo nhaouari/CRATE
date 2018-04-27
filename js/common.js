@@ -1,23 +1,13 @@
-
-
-if (!store.get("config")) {
+if (!store.get("config2")) {
   var config = {
     signalingServer: "https://crateserver.herokuapp.com",
     storageServer: "https://storagecrate.herokuapp.com",
     stun: '23.21.150.121' // default google ones if xirsys not
   };
 } else {
-  var config = store.get("config");
+  var config = store.get("config2");
 }
 
-var config = {
-   // signalingServer: "https://crateserver.herokuapp.com",
-    signalingServer: "https://crateserver.herokuapp.com",
-    storageServer: "https://storagecrate.herokuapp.com",
-    //storageServer:"http://127.0.0.1:3000",
-    stun: '23.21.150.121' // default google ones if xirsys not
-  };
-  console.log(config)
 
 // Profile
 jQuery('#generate-profile').click(function() {
@@ -41,7 +31,7 @@ jQuery('#save-profile').click(function() {
     id: _id,
     pseudo: _pseudo
   });
-
+$('#profile').collapse('toggle')
 });
 
 function loadID() {
@@ -51,15 +41,18 @@ function loadID() {
     jQuery('#photo-profile').html(m.getAvatar());
     jQuery('#id-profile').val(my.id);
     jQuery('#pseudonym-profile').val(my.pseudo);
-
   } else {
     generateID()
-
+    startTour()
   }
 }
 
 jQuery('#icon-profile').click(function() {
   loadID();
+});
+
+jQuery('#guidMe').click(function() {
+ startTour()
 });
 
 
@@ -78,7 +71,7 @@ jQuery('#save-config').click(function() {
   config.storageServer = jQuery('#storageServer').val();
   config.stun = jQuery('#stun').val();
 
-  store.set("config", config);
+  store.set("config2", config);
 
   $('#config').toggle();
 });
@@ -181,3 +174,5 @@ footer = `Developed by [**GDD team**](https://sites.google.com/site/gddlina/)
 `;
 
 $("#footer").html(getHTML(footer));
+
+
