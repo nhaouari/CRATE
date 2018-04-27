@@ -128,7 +128,7 @@ function startTour() {
               },
               {
                 element: '.activeEditor',
-                intro: "This is a crate editor."
+                intro: "This is a crate editor. In the case of multi editors you can use CTRL + arrow left/right to move from one to another"
               },
               {
                 element: '.activeEditor #title',
