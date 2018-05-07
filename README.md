@@ -15,13 +15,12 @@ compatible](http://caniuse.com/#feat=rtcpeerconnection).
 
 # Features
 ## CRATEv1 
-CRATEv1 aims to enable collaborative editing anywhere, at anytime, whatever the
-number of participants, without third party. Compared to Google Docs, (i) CRATE
+CRATEv1 aims to enable collaborative editing anywhere, at any time, whatever the number of participants, without a third party. Compared to Google Docs, (i) CRATE
 does not limit the number of simultaneous users, (ii) CRATE does not rely on
 service providers, thus your documents belong to you and whom you trust, (iii) CRATE does not include all text editing capabilities.
 
 ## CRATEv2 
-**CRATEv2**   is  in the goal of making CRATE  more user-friendly with enhanced formating options. CRATEv2 add capabilities of modern collaborative editors using **QUILL** editor. Therefore, all the basic text formating options are now supported. Moreover, the images from web via copy past or directly from user to user (small sizes < 25Kb). The equations are supported also using KaTeX. Beside this, a basic commenting system is added to the editor, to support more interaction between the editors ([online demo](http://nhaouari.github.io/CRATE/)).
+**CRATEv2**  is in the goal of making CRATE  more user-friendly with enhanced formatting options. CRATEv2 add capabilities of modern collaborative editors using **QUILL** editor. Therefore, all the basic text formatting options are now supported. Moreover, the images from the web via copy past or directly from user to user (small sizes < 25Kb). The equations are supported also using KaTeX. Beside this, a basic commenting system is added to the editor, to support more interaction between the editors ([online demo](http://nhaouari.github.io/CRATE/)).
 
 
 
