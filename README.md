@@ -1,3 +1,4 @@
+
 # CRATEv2
 
 <i>Keywords: distributed, decentralized, collaborative, real-time editor,
@@ -20,18 +21,19 @@ does not limit the number of simultaneous users, (ii) CRATE does not rely on
 service providers, thus your documents belong to you and whom you trust, (iii) CRATE does not include all text editing capabilities.
 
 ## CRATEv2 
-This enhanced version is to make CRATE more user-friendly with enhanced formating options.
-In fact, CRATEv2 add capabilities of modern collaborative editors by using the QUILL editor. Therefore, all the basic text formating options are now supported. Moreover, the images from web via copy past or directly from user to user (small sizes < 25Kb). The equations are supported also using KaTeX. Beside this, a basic commenting system is added to the editor, to support more interaction between the editors. [Online demo](http://nhaouari.github.io/CRATE/)
+**CRATEv2**   is  in the goal of making CRATE  more user-friendly with enhanced formating options. CRATEv2 add capabilities of modern collaborative editors using **QUILL** editor. Therefore, all the basic text formating options are now supported. Moreover, the images from web via copy past or directly from user to user (small sizes < 25Kb). The equations are supported also using KaTeX. Beside this, a basic commenting system is added to the editor, to support more interaction between the editors ([online demo](http://nhaouari.github.io/CRATE/)).
 
 
-CRATE is still in its very early stage of development. Therefore, the
+
+> **CRATEv2** is still in its very early stage of development. Therefore, the
 application may be buggy. Also, even basic functionalities are not implemented
 yet. Feel free to [request functionalities, report issues, and ask
 questions](https://github.com/nhaouari/CRATE/issues).
 
+
 # Get started
 
-When you open such [link](http://nhaouari.github.io/CRATE), you should see in menu *Guide me!*, just click on it, and flow the steps. 
+When you open such [link](http://nhaouari.github.io/CRATE), you should see in menu *Guide me!*, just click on it, and follow the steps. 
 
 # Acknowledgments
 
