@@ -6,20 +6,20 @@ network of browsers</i>
 CRATE is a real-time distributed and decentralized CollaboRATive Editor running
 directly in web browsers.
 
-## Try it out
+# Try it out
 The [online demo](http://nhaouari.github.io/CRATE/) is available. First, make
 sure your browser is [WebRTC
 compatible](http://caniuse.com/#feat=rtcpeerconnection).
 
 
-## Features
-###CRATEv1 
+# Features
+## CRATEv1 
 CRATEv1 aims to enable collaborative editing anywhere, at anytime, whatever the
 number of participants, without third party. Compared to Google Docs, (i) CRATE
 does not limit the number of simultaneous users, (ii) CRATE does not rely on
 service providers, thus your documents belong to you and whom you trust, (iii) CRATE does not include all text editing capabilities.
 
-###CRATEv2 
+## CRATEv2 
 This enhanced version is to make CRATE more user-friendly with enhanced formating options.
 In fact, CRATEv2 add capabilities of modern collaborative editors by using the QUILL editor. Therefore, all the basic text formating options are now supported. Moreover, the images from web via copy past or directly from user to user (small sizes < 25Kb). The equations are supported also using KaTeX. Beside this, a basic commenting system is added to the editor, to support more interaction between the editors. [Online demo](http://nhaouari.github.io/CRATE/)
 
@@ -29,11 +29,11 @@ application may be buggy. Also, even basic functionalities are not implemented
 yet. Feel free to [request functionalities, report issues, and ask
 questions](https://github.com/nhaouari/CRATE/issues).
 
-## Get started
+# Get started
 
 When you open such [link](http://nhaouari.github.io/CRATE), you should see in menu *Guide me!*, just click on it, and flow the steps. 
 
-## Acknowledgments
+# Acknowledgments
 
 The CRATE editor is mainly
 developed by [GDD team](https://sites.google.com/site/gddlina/),
