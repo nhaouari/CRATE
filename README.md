@@ -32,7 +32,7 @@ questions](https://github.com/nhaouari/CRATE/issues).
 
 # Get started
 
-When you open such [link](http://nhaouari.github.io/CRATE), you should see in menu *Guide me!*, just click on it, and follow the steps. 
+Check our online demo in the following link:  [link](http://nhaouari.github.io/CRATE), then you should see in top menu *Guide me!*, just click on it, and follow the steps. 
 
 # Acknowledgments
 
