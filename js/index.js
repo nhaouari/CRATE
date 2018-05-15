@@ -59,7 +59,7 @@ documents.html(list);
 function startTour() {
   introJs().onchange((targetElement)=>{
   
-    console.log(targetElement.id)
+   console.log(targetElement.id)
   
    switch (targetElement.id) {
       case "icon-profile":
@@ -67,7 +67,7 @@ function startTour() {
       $('#profile').collapse('toggle')
         break;
       case "documents":
-       $('#profile').collapse('toggle')
+      $('#profile').collapse('toggle')
         break;
     }
   }).start();

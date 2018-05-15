@@ -1,12 +1,3 @@
-if (!store.get("config2")) {
-  var config = {
-    signalingServer: "https://crateserver.herokuapp.com",
-    storageServer: "https://storagecrate.herokuapp.com",
-    stun: '23.21.150.121' // default google ones if xirsys not
-  };
-} else {
-  var config = store.get("config2");
-}
 
 
 // Profile
@@ -43,7 +34,7 @@ function loadID() {
     jQuery('#pseudonym-profile').val(my.pseudo);
   } else {
     generateID()
-    startTour()
+    //startTour()
   }
 }
 
@@ -109,8 +100,6 @@ $(document).ready(function() {
 function addPage(id, contentMD) {
   pages[id] = `<div class="col-md-10 col-md-offset-1 text-justify markdown-body">${getHTML(contentMD)}</div>`;
 }
-
-
 
 about = `# Features
 
