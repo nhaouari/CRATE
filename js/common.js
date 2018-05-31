@@ -1,3 +1,15 @@
+// If you change this, change it in common also
+if (!store.get("config5")) {
+  var configuration = {
+    //    signalingServer: "https://172.16.9.236:3000",
+    signalingServer: "https://signaling.herokuapp.com",
+    storageServer: "https://storagecrate.herokuapp.com",
+    stun: "23.21.150.121" // default google ones if xirsys not
+  };
+} else {
+  var configuration = store.get("config5");
+}
+
 
 
 // Profile
@@ -7,11 +19,9 @@ jQuery('#generate-profile').click(function() {
 
 function generateID() {
   id = session.GUID();
-  m = new Marker(id);
-
-  jQuery('#photo-profile').html(m.getAvatar());
+  jQuery('#photo-profile').html(Marker.getAvatar(id));
   jQuery('#id-profile').val(id);
-  jQuery('#pseudonym-profile').val(m.animal);
+  jQuery('#pseudonym-profile').val(Marker.getPseudoname(id));
 }
 
 jQuery('#save-profile').click(function() {
@@ -48,9 +58,9 @@ jQuery('#guidMe').click(function() {
 
 
 jQuery('#icon-config').click(function() {
-  jQuery('#signalingServer').val(config.signalingServer);
-  jQuery('#storageServer').val(config.storageServer);
-  jQuery('#stun').val(config.stun);
+  jQuery('#signalingServer').val(configuration.signalingServer);
+  jQuery('#storageServer').val(configuration.storageServer);
+  jQuery('#stun').val(configuration.stun);
 
   $('#config').toggle();
 });
@@ -58,11 +68,11 @@ jQuery('#icon-config').click(function() {
 
 jQuery('#save-config').click(function() {
 
-  config.signalingServer = jQuery('#signalingServer').val();
-  config.storageServer = jQuery('#storageServer').val();
-  config.stun = jQuery('#stun').val();
+  configuration.signalingServer = jQuery('#signalingServer').val();
+  configuration.storageServer = jQuery('#storageServer').val();
+  configuration.stun = jQuery('#stun').val();
 
-  store.set("config5", config);
+  store.set("config5", configuration);
 
   $('#config').toggle();
 });

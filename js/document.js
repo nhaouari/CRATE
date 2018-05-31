@@ -1,13 +1,13 @@
 // If you change this, change it in common also
 if (!store.get("config5")) {
-  var config = {
+  var configuration = {
     //    signalingServer: "https://172.16.9.236:3000",
     signalingServer: "https://signaling.herokuapp.com",
     storageServer: "https://storagecrate.herokuapp.com",
     stun: "23.21.150.121" // default google ones if xirsys not
   };
 } else {
-  var config = store.get("config5");
+  var configuration = store.get("config5");
 }
 
 let editingSession = null;
@@ -21,9 +21,9 @@ if (!store.get("myId")) {
 
 // default settings
 session.config = {
-  signalingServer: config.signalingServer,
-  storageServer: config.storageServer,
-  stun: config.stun, // default google ones if xirsys not
+  signalingServer: configuration.signalingServer,
+  storageServer: configuration.storageServer,
+  stun: configuration.stun, // default google ones if xirsys not
   containerID: "content-default",
   display: true
 };
