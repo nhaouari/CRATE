@@ -62,7 +62,7 @@ jQuery('#save-config').click(function() {
   config.storageServer = jQuery('#storageServer').val();
   config.stun = jQuery('#stun').val();
 
-  store.set("config2", config);
+  store.set("config5", config);
 
   $('#config').toggle();
 });
