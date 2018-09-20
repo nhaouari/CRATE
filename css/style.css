@@ -19,11 +19,10 @@ margin-top: 20px;
 
 
 .editorContainer {
+ background: lightgray !important;
  float: left  !important;
  width: 98vw !important;
  padding-bottom: 25px !important;
- padding-right:45px !important;
- padding-left: 45px !important;
 }
 
 
@@ -35,7 +34,7 @@ margin-top: 20px;
   float:right !important;
 }
 .editor {
-    min-height: 300px;
+    min-height: calc(100vh - 270px);
     float: left;
     width: 100%;
   }
@@ -74,7 +73,6 @@ position: relative;
 #title {
 font-size: x-large;
 float: left;
-min-width: 400px;
 text-align:  left;
 padding-right:5px;
 white-space: nowrap;
@@ -97,10 +95,20 @@ top: 10px;
 
 #state {
 float: left;
-
-
 }
 
+
+.editorContainer{
+  background: lightgray !important;
+
+}
+#editorSection {
+  background: white !important;
+}
+
+#editor{
+  background: white ! important;
+}
 
 #features div {
 float: left;
@@ -118,6 +126,8 @@ float: left;
   margin-top:10px;
   
 }
+
+
 
 #sharinglink {
 position: relative;

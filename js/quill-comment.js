@@ -1533,7 +1533,8 @@ class QuillComment {
 
   }
 
-  addComment({comment,currentTimestamp,...rest}) {
+  addComment({comment,currentTimestamp}) {
+    console.log("add comment in module",{comment,currentTimestamp})
     if (!comment) {
       return; // cannot work without comment 
     }
@@ -1548,6 +1549,7 @@ class QuillComment {
       this.quill.formatText(this.range.index, this.range.length, 'commentId', 'ql-comment-'+this.options.commentAuthorId+'-'+currentTimestamp, 'user');
       this.quill.formatText(this.range.index, this.range.length, 'comment', comment, 'user');
   }
+
 
   enable(enabled = true) {
     this.quill.root.classList.toggle('ql-comments', enabled);
