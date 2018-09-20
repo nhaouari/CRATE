@@ -1,18 +1,8 @@
-// If you change this, change it in common also
-if (!store.get("config5")) {
-  var configuration = {
-    //    signalingServer: "https://172.16.9.236:3000",
-    signalingServer: "https://signaling.herokuapp.com",
-    storageServer: "https://storagecrate.herokuapp.com",
-    stun: "23.21.150.121" // default google ones if xirsys not
-  };
-} else {
-  var configuration = store.get("config5");
-}
-
 let editingSession = null;
 if (document.URL.split("?").length > 1) {
   editingSession = window.location.href.split("?")[1].split("&");
+} else {
+  editingSession =session.default.GUID()
 }
 
 if (!store.get("myId")) {
@@ -20,29 +10,30 @@ if (!store.get("myId")) {
 }
 
 // default settings
-session.config = {
-  signalingServer: configuration.signalingServer,
+const defaultConfig = {
+  signalingOptions:{
+    session:editingSession,
+    address:configuration.signalingServer
+  },
   storageServer: configuration.storageServer,
   stun: configuration.stun, // default google ones if xirsys not
+  ICEsURL:configuration.ICEsURL,
   containerID: "content-default",
   display: true
 };
-
+session.config=defaultConfig
 if (editingSession!="test") 
 {
-  startSession({editingSession})
+  //const options = Object.assign(defaultConfig,{editingSession})
+ 
+  startSession(defaultConfig)
 }
 
-function startSession (options) {
-// if (!(editingSession && editingSession === "test")) {
-//   // For testing purpose
-//   console.log("Test")
-//   debugger
-console.log('Session started',options)
-return new session(options);
-
-// }
+function startSession (opts) {
+  const options = Object.assign(defaultConfig,opts)
+  return new session.default(options);
 }
+
 function startTour() {
   var intro = introJs();
   intro.setOptions({

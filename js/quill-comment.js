@@ -1533,8 +1533,7 @@ class QuillComment {
 
   }
 
-  addComment(comment) {
-
+  addComment({comment,currentTimestamp,...rest}) {
     if (!comment) {
       return; // cannot work without comment 
     }
@@ -1545,14 +1544,9 @@ class QuillComment {
     if (this.options.commentAddOn) {
       this.quill.formatText(this.range.index, this.range.length, 'commentAddOn', this.options.commentAddOn, 'user');
     }
-    
-    this.options.commentTimestamp().then(utcSeconds => {
-      // UNIX epoch like 1234567890
-      this.quill.formatText(this.range.index, this.range.length, 'commentTimestamp', utcSeconds, 'user');
-      this.quill.formatText(this.range.index, this.range.length, 'commentId', 'ql-comment-'+this.options.commentAuthorId+'-'+utcSeconds, 'user');
-
+      this.quill.formatText(this.range.index, this.range.length, 'commentTimestamp', currentTimestamp, 'user');
+      this.quill.formatText(this.range.index, this.range.length, 'commentId', 'ql-comment-'+this.options.commentAuthorId+'-'+currentTimestamp, 'user');
       this.quill.formatText(this.range.index, this.range.length, 'comment', comment, 'user');
-    });
   }
 
   enable(enabled = true) {

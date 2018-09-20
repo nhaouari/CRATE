@@ -20,15 +20,20 @@ margin-top: 20px;
 
 .editorContainer {
  float: left  !important;
- width: 45vw !important;
- margin-top: 25px;
+ width: 98vw !important;
  padding-bottom: 25px !important;
  padding-right:45px !important;
  padding-left: 45px !important;
-
 }
 
 
+
+#content-default {
+ text-align:left !important;
+}
+#features{
+  float:right !important;
+}
 .editor {
     min-height: 300px;
     float: left;

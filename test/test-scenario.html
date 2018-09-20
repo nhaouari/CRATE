@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+	<title>Test scenario</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="row">
+
+			<h1>Simulation Log</h1>
+		</div>
+
+		
+		<table class="table" id="log">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">test</th>
+						<th scope="col">state</th>
+					</tr>
+				</thead>
+				<tbody>
+					</tbody>
+		</table>
+		
+		<div class="row">
+			<div id="log" class="row">
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm">
+				<canvas id="connectivity"></canvas>
+
+			</div>
+			<div class="col-sm">
+				<canvas id="numberofarcs"></canvas>
+			</div>
+		</div>
+
+		<div class="row" style="position: relative; border: 2px solid #212523">
+			<div id="cy" style="height: 80vh; width: 80vw;"></div>
+		</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="js/jquery-crate.bundle.js"></script>
+	<script src="cytoscape.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="cytoscape-node-html-label.js"></script>
+	<script src="tarjan.js"></script>
+	<script src="simulation.js"></script>
+	<script src="plot.js"></script>
+	<script src="sprayTest.js"></script>
+	<script src="testCausalBrodcast.js"></script>
+	<script src="test-interface.js"></script>
+	<script>
+	
+	let monitorWindow= window.open("http://127.0.0.1:8000/test.html","monitor",null)
+	
+	function clonePage(printWindow) {
+    let html = $("html").clone(true, true);
+    printWindow.document.write(
+      "<!DOCTYPE html><html><head></head><body></body></html>"
+    );
+    $(printWindow.document)
+      .find("html")
+      .replaceWith(html);
+  }
+
+  //	clonePage(monitorWindow)	
+		let simulationOptions = {
+			seed: 3,
+			nbSessions: 5,
+			maxRandomTime: 3 * 1000,
+			nbRounds: 5,
+			URL: 'http://127.0.0.1:8000/document.html?test',
+			nbOfEdits: 5,
+			preSimulationTime: 20 * 1000,
+			useSignalingServer:true
+		}
+
+		simulation.defaultOptions = simulationOptions
+	</script>
+</body>

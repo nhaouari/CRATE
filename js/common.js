@@ -1,13 +1,28 @@
-// If you change this, change it in common also
-if (!store.get("config5")) {
-  var configuration = {
-    //    signalingServer: "https://172.16.9.236:3000",
-    signalingServer: "https://signaling.herokuapp.com",
-    storageServer: "https://storagecrate.herokuapp.com",
-    stun: "23.21.150.121" // default google ones if xirsys not
-  };
-} else {
-  var configuration = store.get("config5");
+
+var IMAGE_MIME_REGEX = /^image\/(p?jpeg|gif|png)$/i;
+var loadImage = function (file) {
+    var reader = new FileReader();
+    reader.onload = function(e){
+        var img = document.createElement('img');
+        img.src = e.target.result;
+        var range = window.getSelection().getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(img);
+    };
+    reader.readAsDataURL(file);
+};
+
+document.onpaste = function(e){
+    var items = e.clipboardData.items;
+
+    for (var i = 0; i < items.length; i++) {
+        if (IMAGE_MIME_REGEX.test(items[i].type)) {
+            loadImage(items[i].getAsFile());
+            return;
+        }
+    }
+
+    // Normal paste handling here
 }
 
 
@@ -18,10 +33,19 @@ jQuery('#generate-profile').click(function() {
 });
 
 function generateID() {
-  id = session.GUID();
+  const Marker=session.default.Marker
+  const id = session.default.GUID()
+  const pseudoName = Marker.getPseudoname(id)
+
   jQuery('#photo-profile').html(Marker.getAvatar(id));
   jQuery('#id-profile').val(id);
-  jQuery('#pseudonym-profile').val(Marker.getPseudoname(id));
+  jQuery('#pseudonym-profile').val(pseudoName);
+
+  store.set('myId', {
+    id: id,
+    pseudo: Marker.getPseudoname(pseudoName)
+  });
+
 }
 
 jQuery('#save-profile').click(function() {
@@ -36,10 +60,10 @@ $('#profile').collapse('toggle')
 });
 
 function loadID() {
+  const Marker=session.default.Marker
   if (store.get('myId')) {
     my = store.get('myId');
-    m = new Marker(my.id);
-    jQuery('#photo-profile').html(m.getAvatar());
+    jQuery('#photo-profile').html(Marker.getAvatar(my.id));
     jQuery('#id-profile').val(my.id);
     jQuery('#pseudonym-profile').val(my.pseudo);
   } else {
@@ -72,7 +96,7 @@ jQuery('#save-config').click(function() {
   configuration.storageServer = jQuery('#storageServer').val();
   configuration.stun = jQuery('#stun').val();
 
-  store.set("config5", configuration);
+  store.set(configName, configuration);
 
   $('#config').toggle();
 });
