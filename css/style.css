@@ -9,12 +9,11 @@ margin-top: 20px;
   left:0 !important;;
 }
 .big-container {
-  width:10000%;
+  width:100%;
 }
   
 
 .activeEditor {
-  box-shadow: 2px 1px 24px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -23,6 +22,7 @@ margin-top: 20px;
  float: left  !important;
  width: 98vw !important;
  padding-bottom: 25px !important;
+margin-right: 10px  !important;
 }
 
 
@@ -217,76 +217,12 @@ position: relative;
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
+@media screen and (max-width: 767px) {
+
     }
-
-    #forkongithub a{
-    background:#222;
-    color:#fff;
-    text-decoration:none;
-    font-family:arial,sans-serif;
-    text-align:center;
-    font-weight:bold;
-    padding:5px 40px;
-    font-size:1rem;
-    line-height:2rem;
-    position:relative;
-    transition:0.5s;
-}
-#forkongithub a:hover{
-    background:#f1f1f1;
-    color:#fff;
-}
-
-#forkongithub a::before,#forkongithub a::after{
-    content:"";
-    width:100%;
-    display:block;
-    position:absolute;
-    top:1px;
-    left:0;
-    height:1px;
-    background:#fff;
-}
-
-#forkongithub a::after{
-    bottom:1px;
-    top:auto;
-}
 
 @media screen and (min-width:800px){
-    #forkongithub{
-        position:absolute;
-        display:block;
-        top:5px;
-        left:0;
-        width:200px;
-        overflow:hidden;
-        height:200px;
-        z-index:0;
-    }
-
-    #forkongithub a:hover{
-    background:#c11;
-    color:#fff;
-}
-    #forkongithub a{
-        width:200px;
-        position:absolute;
-        top:85px;
-        left:-60px;
-        transform:rotate(-45deg);
-        -webkit-transform:rotate(-45deg);
-        -ms-transform:rotate(-45deg);
-        -moz-transform:rotate(-45deg);
-        -o-transform:rotate(-45deg);
-        box-shadow:4px 4px 10px rgba(0,0,0,0.8);
-    }
+ 
 }
 
 
@@ -388,6 +324,7 @@ button.ql-comments-toggle,button.ql-comments-add  {
   visibility: hidden;
   color: white;
   padding-bottom: 2px; }
+  
   @media screen {
     .ql-cursor .ql-cursor-flag {
       transition: opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms, visibility 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms; } }

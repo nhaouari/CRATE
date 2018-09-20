@@ -135,7 +135,9 @@ function addPage(id, contentMD) {
   pages[id] = `<div class="col-md-10 col-md-offset-1 text-justify markdown-body">${getHTML(contentMD)}</div>`;
 }
 
-about = `# Features
+about = `#Features
+
+
 
 **CRATE** aims to enable collaborative editing anywhere, at anytime, whatever the
 number of participants, without third party. Compared to Google Docs:
