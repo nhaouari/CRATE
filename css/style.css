@@ -1,0 +1,386 @@
+/* Remove the navbar's default margin-bottom and rounded borders */
+html {
+  font-size: 16px !important;
+}
+.textContent {
+  font-size: large;
+  text-align: justify;
+  margin: 10% !important;
+  font-family: "Open Sans", sans-serif !important;
+}
+
+#head {
+  margin-top: 20px;
+}
+
+.ql-tooltip {
+  left: 0 !important;
+}
+.big-container {
+  width: 10000%;
+}
+
+.activeEditor {
+}
+
+.CrateSessionID {
+  /* color: blueviolet !important;
+  font-weight: bold;*/
+}
+
+#menurow {
+  margin-top: 7px;
+}
+
+.editorContainer {
+  /* border-radius: 10px;*/
+  float: left !important;
+  width: 100vw !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.editorContent {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#closeDocument {
+  position: relative;
+}
+
+#closeDocument:hover {
+  color: red;
+}
+
+#content-default {
+  text-align: left !important;
+}
+#features {
+  float: right !important;
+}
+.editor {
+  min-height: calc(100vh - 235px);
+  float: left;
+  width: 100%;
+}
+
+.commentFocus {
+  background-color: red !important;
+}
+
+.ql-comments [ql-comment] {
+  background-color: yellow;
+}
+
+#comments {
+  float: left;
+  width: 0%;
+  display: none;
+}
+i {
+  cursor: pointer;
+}
+
+#content {
+}
+
+#firstrow {
+  margin-top: -18px;
+}
+
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+#title {
+  font-size: XX-large;
+  font-family: "Merriweather", serif !important;
+  float: left;
+  text-align: left;
+  padding-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#title br {
+  display: none;
+}
+#title * {
+  display: inline;
+  white-space: nowrap;
+}
+
+#connectionState {
+  position: absolute;
+  left: -37px;
+  top: 10px;
+}
+
+#state {
+  float: left;
+}
+
+#editorSection {
+}
+
+#editor {
+}
+
+#features div {
+  float: left;
+}
+
+.ficon {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0px;
+}
+
+.ficon2 {
+  margin-left: 10px;
+  font-size: 1.5em !important;
+}
+
+#sharinglink {
+  position: relative;
+}
+
+.imageuser {
+  width: inherit;
+  height: inherit;
+}
+
+#users {
+  margin-left: 0px;
+}
+
+#users div {
+  width: 2em !important;
+  float: left;
+  margin: 2px;
+}
+
+.comments {
+  padding: 10px;
+}
+
+.comment-box {
+  border: 1px #f0f0f0 solid;
+  padding: 10px 15px;
+}
+
+.comment-initials {
+  float: left;
+  padding: 10px;
+  background: #444444;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.comment-author {
+  color: #444444;
+  font-size: 16px;
+}
+
+.comment-date {
+  color: #bbbbbb;
+}
+
+.comment-body {
+  padding: 10px 0;
+  text-align: left;
+}
+
+.comment-details {
+  position: relative;
+  top: -42px;
+  text-align: left;
+  margin-left: 46px;
+}
+
+.comment-head {
+  height: 50px;
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  z-index: 10;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+  height: 450px;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+}
+
+@media screen and (min-width: 800px) {
+}
+
+.markdown-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 24px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  color: rgb(36, 41, 46);
+  overflow-wrap: break-word;
+  text-decoration: none solid rgb(36, 41, 46);
+  text-size-adjust: 100%;
+  word-wrap: break-word;
+  column-rule-color: rgb(36, 41, 46);
+  perspective-origin: 490px 785.344px;
+  transform-origin: 490px 785.344px;
+  caret-color: rgb(36, 41, 46);
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 45px;
+}
+
+#footer a {
+  color: white;
+}
+
+#profile {
+  width: 200px;
+  position: absolute;
+  right: 0;
+  background: #222;
+  padding: 10px;
+  top: 60px;
+  z-index: 99999;
+}
+
+#header {
+  position: relative;
+}
+
+#photo-profile {
+  text-align: -webkit-center;
+}
+
+#photo-profile img {
+  width: 70px;
+  height: 70px;
+}
+
+#photo-profile div {
+  text-align: center;
+  width: 70px;
+  height: 70px;
+}
+
+#config {
+  padding: 30px;
+  display: none;
+}
+
+/* Quill comment*/
+button.ql-comments-toggle,
+button.ql-comments-add {
+  font-size: 1.5em;
+}
+
+/* Quill cursor */
+
+.ql-container {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.ql-editor {
+  position: relative;
+  position: relative;
+  flex: 1;
+  outline: none;
+  tab-size: 4;
+  white-space: pre-wrap;
+}
+
+.ql-cursor.hidden {
+  display: none;
+}
+
+.ql-cursor .ql-cursor-caret-container,
+.ql-cursor .ql-cursor-flag {
+  position: absolute;
+}
+
+.ql-cursor .ql-cursor-flag {
+  z-index: 1;
+  transform: translate3d(-1px, -100%, 0);
+  opacity: 0;
+  visibility: hidden;
+  color: white;
+  padding-bottom: 2px;
+}
+
+@media screen {
+  .ql-cursor .ql-cursor-flag {
+    transition: opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms,
+      visibility 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms;
+  }
+}
+.ql-cursor .ql-cursor-flag .ql-cursor-name {
+  margin-left: 5px;
+  margin-right: 2.5px;
+  display: inline-block;
+  margin-top: -2px;
+}
+.ql-cursor .ql-cursor-flag .ql-cursor-flag-flap {
+  display: inline-block;
+  z-index: -1;
+  width: 5px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -2.5px;
+  border-radius: 3px;
+  background-color: inherit;
+}
+
+.ql-cursor .ql-cursor-flag:hover,
+.ql-cursor .ql-cursor-caret-container:hover + .ql-cursor-flag {
+  opacity: 1;
+  visibility: visible;
+  transition: none;
+}
+
+.ql-cursor .ql-cursor-caret-container {
+  margin-left: -9px;
+  padding: 0 9px;
+  z-index: 1;
+}
+.ql-cursor .ql-cursor-caret-container .ql-cursor-caret {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background-color: attr(data-color);
+}
+
+.ql-cursor .ql-cursor-selection-block {
+  position: absolute;
+}
