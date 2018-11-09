@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/CRATE/static/css/main.e357cc70.chunk.css"
   },
   {
-    "revision": "dc1328ef2f302efaeb428051329e91fd",
+    "revision": "38ee4d2eec2abc44094380315d9aaca2",
     "url": "/CRATE/index.html"
   }
 ];
