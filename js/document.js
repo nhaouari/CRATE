@@ -2,7 +2,8 @@ let editingSession = null;
 if (document.URL.split("?").length > 1) {
   editingSession = window.location.href.split("?")[1].split("&");
 } else {
-  editingSession =session.default.GUID()
+  editingSession =Crate.getRandomId()
+  window.location.replace(window.location.href+"?"+editingSession);
 }
 
 if (!store.get("myId")) {
@@ -12,26 +13,31 @@ if (!store.get("myId")) {
 // default settings
 const defaultConfig = {
   signalingOptions:{
-    session:editingSession,
     address:configuration.signalingServer
   },
   storageServer: configuration.storageServer,
   stun: configuration.stun, // default google ones if xirsys not
   ICEsURL:configuration.ICEsURL,
   containerID: "content-default",
-  display: true
+  display: true,
+  PingPeriod: 100000, 
+  AntiEntropyPeriod: 100000
 };
-session.config=defaultConfig
+//session.config=defaultConfig
+
+var crate
 if (editingSession!="test") 
 {
   //const options = Object.assign(defaultConfig,{editingSession})
  
-  startSession(defaultConfig)
+   crate = new Crate(defaultConfig)
+   crate.addNewDocument(editingSession)
+
 }
 
 function startSession (opts) {
   const options = Object.assign(defaultConfig,opts)
-  return new session.default(options);
+  return new Crate(options);
 }
 
 function startTour() {

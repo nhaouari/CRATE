@@ -33,9 +33,9 @@ jQuery('#generate-profile').click(function() {
 });
 
 function generateID() {
-  const Marker=session.default.Marker
-  const id = session.default.GUID()
-  const pseudoName = Marker.getPseudoname(id)
+  const Marker=Crate.Marker
+  const id = Crate.getRandomId()
+  const pseudoName = Crate.Marker.getPseudoname(id)
 
   jQuery('#photo-profile').html(Marker.getAvatar(id));
   jQuery('#id-profile').val(id);
@@ -60,7 +60,7 @@ $('#profile').collapse('toggle')
 });
 
 function loadID() {
-  const Marker=session.default.Marker
+  const Marker=Crate.Marker
   if (store.get('myId')) {
     my = store.get('myId');
     jQuery('#photo-profile').html(Marker.getAvatar(my.id));
@@ -68,7 +68,6 @@ function loadID() {
     jQuery('#pseudonym-profile').val(my.pseudo);
   } else {
     generateID()
-    //startTour()
   }
 }
 
@@ -201,3 +200,27 @@ footer = `Developed by [**GDD team**](https://sites.google.com/site/gddlina/)
 $("#footer").html(getHTML(footer));
 
 
+<Tippy
+appendTo={el => el.parentNode}
+interactive={true}
+theme="light rounded"
+arrow={true}
+size="large"
+arrowTransform="scale(2)"
+distance={15}
+interactiveBorder={20}
+content={
+  <div class="template" style={{ padding: '20px' }}>
+    <img width="100" src={logo} />
+    <h3>
+      Look! The tippy logo is inside a <strong>tippy</strong>.
+    </h3>
+    <button
+      class="btn"
+      onclick={e => e.target.closest('.tippy-popper')._tippy.hide()}
+    >
+      Close
+    </button>
+  </div>
+}
+>
