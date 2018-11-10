@@ -1,13 +1,13 @@
 {
   "main.css": "/CRATE/static/css/main.3c9f3ec7.chunk.css",
-  "main.js": "/CRATE/static/js/main.0a792ca0.chunk.js",
-  "main.js.map": "/CRATE/static/js/main.0a792ca0.chunk.js.map",
-  "static/js/1.913b20bf.chunk.js": "/CRATE/static/js/1.913b20bf.chunk.js",
-  "static/js/1.913b20bf.chunk.js.map": "/CRATE/static/js/1.913b20bf.chunk.js.map",
+  "main.js": "/CRATE/static/js/main.5e04d152.chunk.js",
+  "main.js.map": "/CRATE/static/js/main.5e04d152.chunk.js.map",
+  "static/js/1.eaed4cc5.chunk.js": "/CRATE/static/js/1.eaed4cc5.chunk.js",
+  "static/js/1.eaed4cc5.chunk.js.map": "/CRATE/static/js/1.eaed4cc5.chunk.js.map",
   "runtime~main.js": "/CRATE/static/js/runtime~main.e2f9dc5b.js",
   "runtime~main.js.map": "/CRATE/static/js/runtime~main.e2f9dc5b.js.map",
   "static/css/main.3c9f3ec7.chunk.css.map": "/CRATE/static/css/main.3c9f3ec7.chunk.css.map",
   "index.html": "/CRATE/index.html",
-  "precache-manifest.19de20615253b0c0daf370a4af05720a.js": "/CRATE/precache-manifest.19de20615253b0c0daf370a4af05720a.js",
+  "precache-manifest.f90999dfc32cb3b063e7caf14b44a190.js": "/CRATE/precache-manifest.f90999dfc32cb3b063e7caf14b44a190.js",
   "service-worker.js": "/CRATE/service-worker.js"
 }
